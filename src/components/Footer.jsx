@@ -1,0 +1,95 @@
+'use client';
+
+export default function Footer() {
+  return (
+    <footer className="bg-white pt-24 pb-8 px-6 md:px-12 border-t border-gray-100" id="main-footer">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-32">
+          <div className="space-y-6">
+            <div className="text-2xl font-bold flex items-center gap-2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2 20h20v2H2v-2zm2-8h4v6H4v-6zm6-6h4v12h-4V6zm6-4h4v16h-4V2z" />
+              </svg>
+              Arcbes
+            </div>
+            <p className="text-gray-500 text-sm leading-relaxed">
+              We take pride in offering customized cleaning services that meet your specific needs.
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
+              >
+                IG
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
+              >
+                TW
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
+              >
+                FB
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-6">Pages</h4>
+            <ul className="space-y-4 text-gray-600 text-sm">
+              <li><a href="#" className="hover:text-black">Home Page</a></li>
+              <li><a href="#" className="hover:text-black">About Us</a></li>
+              <li><a href="#" className="hover:text-black">Services</a></li>
+              <li><a href="#" className="hover:text-black">Contact</a></li>
+              <li><a href="#" className="hover:text-black">Blog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-6">Utility Pages</h4>
+            <ul className="space-y-4 text-gray-600 text-sm">
+              <li><a href="#" className="hover:text-black">Style Guide</a></li>
+              <li><a href="#" className="hover:text-black">Licenses</a></li>
+              <li><a href="#" className="hover:text-black">Changelog</a></li>
+              <li><a href="#" className="hover:text-black">Not Found</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-6">Address</h4>
+            <ul className="space-y-4 text-gray-600 text-sm">
+              <li>info@arcbes.com</li>
+              <li>(555) 345-6789</li>
+              <li>567 Jac Spruce Crescent,<br />Montreal, QC H3A 2K3</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-b border-gray-200 mb-8 overflow-hidden">
+          <h1
+            className="text-[19vw] leading-[0.8] font-bold text-black flex justify-between tracking-tighter w-full select-none"
+            aria-label="Arcbes"
+          >
+            <div className="overflow-hidden"><span className="block footer-letter translate-y-full">A</span></div>
+            <div className="overflow-hidden"><span className="block footer-letter translate-y-full">r</span></div>
+            <div className="overflow-hidden"><span className="block footer-letter translate-y-full">c</span></div>
+            <div className="overflow-hidden"><span className="block footer-letter translate-y-full">b</span></div>
+            <div className="overflow-hidden"><span className="block footer-letter translate-y-full">e</span></div>
+            <div className="overflow-hidden"><span className="block footer-letter translate-y-full">s</span></div>
+          </h1>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between text-xs text-gray-500 py-4">
+          <p>Copyright © Arcbes</p>
+          <div className="flex gap-8">
+            <p>Designed by Brandbes</p>
+            <p>Powered by Webflow</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
