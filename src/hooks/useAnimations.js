@@ -19,6 +19,14 @@ export default function useAnimations() {
 
 		// Create GSAP context
 		ctx = gsap.context(() => {
+			// Set initial states IMMEDIATELY before anything renders visibly
+			gsap.set('.hero-letter', { y: '120%', opacity: 0 })
+			gsap.set('#hero-image-wrapper', { y: '30%', opacity: 0 })
+			gsap.set('#about-text', { opacity: 0, y: 30 })
+			gsap.set('.about-img', { scaleY: 0 })
+			gsap.set('.service-item', { opacity: 0, y: 30 })
+			gsap.set('.footer-letter', { y: '100%' })
+
 			// Initialize Lenis smooth scroll
 			lenis = new Lenis({
 				duration: 1.2,
@@ -66,32 +74,49 @@ export default function useAnimations() {
 				)
 
 			// About section animations
-			gsap.to('#about-text', {
-				scrollTrigger: { trigger: '#about', start: 'top 70%' },
-				y: 0,
-				opacity: 1,
-				duration: 1,
-				ease: 'power3.out',
-			})
+			const aboutText = document.querySelector('#about-text')
+			if (aboutText) {
+				gsap.to('#about-text', {
+					y: 0,
+					opacity: 1,
+					duration: 1,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: '#about',
+						start: 'top 70%',
+						once: true,
+					},
+				})
+			}
 
-			gsap.utils.toArray('.about-img').forEach((img, i) => {
+			const aboutImgs = gsap.utils.toArray('.about-img')
+			aboutImgs.forEach((img, i) => {
 				gsap.to(img, {
-					scrollTrigger: { trigger: '#about', start: 'top 60%' },
 					scaleY: 1,
 					duration: 1.2,
 					ease: 'expo.out',
 					delay: i * 0.2,
+					scrollTrigger: {
+						trigger: '#about',
+						start: 'top 60%',
+						once: true,
+					},
 				})
 			})
 
 			// Services animation
-			gsap.utils.toArray('.service-item').forEach((item, i) => {
+			const serviceItems = gsap.utils.toArray('.service-item')
+			serviceItems.forEach((item, i) => {
 				gsap.to(item, {
-					scrollTrigger: { trigger: item, start: 'top 85%' },
 					y: 0,
 					opacity: 1,
 					duration: 0.8,
 					delay: i * 0.1,
+					scrollTrigger: {
+						trigger: item,
+						start: 'top 85%',
+						once: true,
+					},
 				})
 			})
 
@@ -104,7 +129,7 @@ export default function useAnimations() {
 						start: 'top top',
 						end: '+=250%',
 						pin: true,
-						pinReparent: true, // This helps with cleanup
+						pinReparent: true,
 						scrub: 1,
 						anticipatePin: 1,
 					},
@@ -126,13 +151,21 @@ export default function useAnimations() {
 			// Testimonials animation
 			const testimonialImg = document.querySelector('.testimonial-img')
 			if (testimonialImg) {
-				gsap.from('.testimonial-img', {
-					scrollTrigger: { trigger: '#testimonials', start: 'top 70%' },
-					scale: 1.2,
-					opacity: 0,
-					duration: 1.5,
-					ease: 'power2.out',
-				})
+				gsap.fromTo(
+					'.testimonial-img',
+					{ scale: 1.2, opacity: 0 },
+					{
+						scale: 1,
+						opacity: 1,
+						duration: 1.5,
+						ease: 'power2.out',
+						scrollTrigger: {
+							trigger: '#testimonials',
+							start: 'top 70%',
+							once: true,
+						},
+					}
+				)
 			}
 
 			// CTA Parallax Effect
@@ -156,6 +189,7 @@ export default function useAnimations() {
 					scrollTrigger: {
 						trigger: '#main-footer',
 						start: 'top 60%',
+						once: true,
 					},
 					y: '0%',
 					duration: 1,
@@ -179,17 +213,17 @@ export default function useAnimations() {
 
 			// Kill all ScrollTriggers and clear their pins
 			ScrollTrigger.getAll().forEach(st => {
-				st.kill(true) // true = also removes pin-spacer
+				st.kill(true)
 			})
 
-			// Revert GSAP context - this kills all animations created within it
+			// Revert GSAP context
 			if (ctx) {
 				ctx.revert()
 			}
 
-			// Clear inline styles that might have been set
+			// Clear inline styles and refresh
 			ScrollTrigger.clearScrollMemory()
-			ScrollTrigger.refresh(true)
+			gsap.killTweensOf('*')
 		}
 	}, [])
 }

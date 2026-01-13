@@ -10,22 +10,22 @@ export default function ServiceDetailFooter() {
 						aria-label="Arcbes"
 					>
 						<div className="overflow-hidden">
-							<span className="block footer-letter translate-y-full">A</span>
+							<span className="block footer-letter">A</span>
 						</div>
 						<div className="overflow-hidden">
-							<span className="block footer-letter translate-y-full">r</span>
+							<span className="block footer-letter">r</span>
 						</div>
 						<div className="overflow-hidden">
-							<span className="block footer-letter translate-y-full">c</span>
+							<span className="block footer-letter">c</span>
 						</div>
 						<div className="overflow-hidden">
-							<span className="block footer-letter translate-y-full">b</span>
+							<span className="block footer-letter">b</span>
 						</div>
 						<div className="overflow-hidden">
-							<span className="block footer-letter translate-y-full">e</span>
+							<span className="block footer-letter">e</span>
 						</div>
 						<div className="overflow-hidden">
-							<span className="block footer-letter translate-y-full">s</span>
+							<span className="block footer-letter">s</span>
 						</div>
 					</h1>
 				</div>

@@ -8,6 +8,10 @@ export default function useServiceDetailAnimations() {
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger)
 
+		// Set initial states
+		gsap.set('.process-icon-box', { opacity: 0, y: 30 })
+		gsap.set('.footer-letter', { y: '100%' })
+
 		// Page Loader
 		gsap.to('#loader', { autoAlpha: 0, duration: 0.5, delay: 0.2 })
 
@@ -33,12 +37,16 @@ export default function useServiceDetailAnimations() {
 			})
 
 			// Animate image scale
-			gsap.from(heroImg, {
-				scale: 1.2,
-				duration: 1.5,
-				ease: 'expo.out',
-				delay: 0.5,
-			})
+			gsap.fromTo(
+				heroImg,
+				{ scale: 1.2 },
+				{
+					scale: 1.1,
+					duration: 1.5,
+					ease: 'expo.out',
+					delay: 0.5,
+				}
+			)
 
 			// Parallax on scroll
 			gsap.to(heroImg, {
@@ -55,32 +63,38 @@ export default function useServiceDetailAnimations() {
 		// Sidebar animations
 		const sidebarItems = document.querySelectorAll('.sticky > div')
 		if (sidebarItems.length > 0) {
-			gsap.from(sidebarItems, {
-				scrollTrigger: {
-					trigger: '.sticky',
-					start: 'top 80%',
-				},
-				y: 50,
-				opacity: 0,
-				duration: 1,
-				stagger: 0.2,
-				ease: 'power3.out',
-			})
+			gsap.fromTo(
+				sidebarItems,
+				{ y: 50, opacity: 0 },
+				{
+					y: 0,
+					opacity: 1,
+					duration: 1,
+					stagger: 0.2,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: '.sticky',
+						start: 'top 80%',
+						once: true,
+					},
+				}
+			)
 		}
 
 		// Process icons animation
 		const processBoxes = document.querySelectorAll('.process-icon-box')
 		if (processBoxes.length > 0) {
-			gsap.from(processBoxes, {
-				scrollTrigger: {
-					trigger: processBoxes[0],
-					start: 'top 85%',
-				},
-				y: 30,
-				opacity: 0,
+			gsap.to(processBoxes, {
+				y: 0,
+				opacity: 1,
 				duration: 0.8,
 				stagger: 0.1,
 				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: processBoxes[0],
+					start: 'top 85%',
+					once: true,
+				},
 			})
 		}
 
@@ -91,6 +105,7 @@ export default function useServiceDetailAnimations() {
 				scrollTrigger: {
 					trigger: '#main-footer',
 					start: 'top 70%',
+					once: true,
 				},
 				y: '0%',
 				duration: 1,
@@ -102,6 +117,7 @@ export default function useServiceDetailAnimations() {
 		// Cleanup
 		return () => {
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+			gsap.killTweensOf('*')
 		}
 	}, [])
 }

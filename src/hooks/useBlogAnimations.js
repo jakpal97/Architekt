@@ -8,39 +8,47 @@ export default function useBlogAnimations() {
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger)
 
+		// Set initial states
+		gsap.set('#blog-badge', { opacity: 0, y: 20 })
+		gsap.set('#blog-title', { opacity: 0, y: 50 })
+		gsap.set('.blog-card', { opacity: 0, y: 60 })
+		gsap.set('.footer-letter', { y: '100%' })
+
 		// Page Loader & Header Intro
 		const tl = gsap.timeline()
 
 		tl.to('#loader', { autoAlpha: 0, duration: 0.5 })
-			.from('#blog-badge', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.2')
-			.from('#blog-title', { y: 50, opacity: 0, duration: 1, ease: 'power3.out' }, '-=0.6')
+			.to('#blog-badge', { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.2')
+			.to('#blog-title', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.6')
 
 		// Blog Cards Scroll Animation
 		const blogCards = document.querySelectorAll('.blog-card')
 		blogCards.forEach(card => {
-			gsap.from(card, {
+			gsap.to(card, {
+				y: 0,
+				opacity: 1,
+				duration: 1.2,
+				ease: 'power3.out',
 				scrollTrigger: {
 					trigger: card,
 					start: 'top 85%',
+					once: true,
 				},
-				y: 60,
-				opacity: 0,
-				duration: 1.2,
-				ease: 'power3.out',
 			})
 		})
 
 		// CTA Video Parallax
 		const ctaHeading = document.querySelector('#cta-heading')
 		if (ctaHeading) {
-			gsap.from(ctaHeading, {
+			gsap.set(ctaHeading, { y: 80 })
+			gsap.to(ctaHeading, {
 				scrollTrigger: {
 					trigger: '#cta-video-section',
 					start: 'top bottom',
 					end: 'bottom top',
 					scrub: 1,
 				},
-				y: 80,
+				y: -80,
 			})
 		}
 
@@ -51,6 +59,7 @@ export default function useBlogAnimations() {
 				scrollTrigger: {
 					trigger: '#main-footer',
 					start: 'top 70%',
+					once: true,
 				},
 				y: '0%',
 				duration: 1,
@@ -62,6 +71,7 @@ export default function useBlogAnimations() {
 		// Cleanup
 		return () => {
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+			gsap.killTweensOf('*')
 		}
 	}, [])
 }
