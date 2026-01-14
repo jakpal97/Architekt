@@ -7,8 +7,7 @@ export default function BlogFooter() {
 				<div className="border-b border-gray-200 mb-8 overflow-hidden">
 					<h1
 						className="text-[19vw] leading-[0.8] font-bold text-black flex justify-between tracking-tighter w-full select-none"
-						aria-label="Arcbes"
-					>
+						aria-label="Arcbes">
 						<div className="overflow-hidden">
 							<span className="block footer-letter">A</span>
 						</div>

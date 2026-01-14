@@ -8,51 +8,51 @@ export default function BlogDetailContent() {
 				{/* Section 1 */}
 				<div className="anim-fade-up mb-16">
 					<h2 className="text-4xl md:text-5xl font-medium mb-8 leading-tight tracking-tight">
-						Architecture & Art Have Always A Deep And Intrinsic Relationship
+						Architektura i Sztuka Zawsze Miały Głęboki i Wewnętrzny Związek
 					</h2>
 					<p className="text-gray-600 text-xl leading-relaxed mb-8">
-						Architecture intersects with art, the results are sculptural buildings that transcend mere
-						functionality, becoming iconic landmarks that provoke thought, admiration, and sometimes even
-						controversy. These structures redefine what it means to inhabit space, turning ordinary
-						environments into works of art that resonate with the human spirit.
+						Gdy architektura spotyka się ze sztuką, rezultatem są rzeźbiarskie budynki, które wykraczają poza
+						zwykłą funkcjonalność, stając się ikonicznymi punktami orientacyjnymi, które prowokują do myślenia,
+						zachwytu, a czasem nawet kontrowersji. Te struktury redefiniują znaczenie zamieszkiwania przestrzeni,
+						przekształcając zwykłe środowiska w dzieła sztuki, które rezonują z ludzkim duchem.
 					</p>
 					<p className="text-gray-600 text-xl leading-relaxed">
-						Sculptural architecture blurs the lines between form and function, allowing the design itself to
-						tell a story or represent an idea. It challenges the status quo of &quot;form follows
-						function&quot; by suggesting that form itself can be the function.
+						Rzeźbiarska architektura zaciera granice między formą a funkcją, pozwalając samemu designowi opowiadać
+						historię lub reprezentować ideę. Wyzwala status quo &quot;forma podąża za funkcją&quot;, sugerując,
+						że sama forma może być funkcją.
 					</p>
 				</div>
 
 				{/* Section 2 */}
 				<div className="anim-fade-up mb-16">
 					<h2 className="text-4xl md:text-5xl font-medium mb-8 leading-tight tracking-tight">
-						One of The Most Notable Examples
+						Jeden z Najbardziej Znanych Przykładów
 					</h2>
 					<p className="text-gray-600 text-xl leading-relaxed mb-8">
-						Antoni Gaudí&apos;s Sagrada Família in Barcelona is a striking example of the fusion of art and
-						architecture. With its intricate façades and towering spires, Gaudí&apos;s masterpiece resembles
-						a stone sculpture more than a traditional church. Every surface of the building is adorned with
-						symbolic carvings.
+						Sagrada Família Antoniego Gaudíego w Barcelonie jest uderzającym przykładem fuzji sztuki i
+						architektury. Dzięki misternym fasadom i strzelistym wieżom, arcydzieło Gaudíego przypomina bardziej
+						rzeźbę kamienną niż tradycyjny kościół. Każda powierzchnia budynku jest ozdobiona symbolicznymi
+						rzeźbami.
 					</p>
 
 					<ul className="space-y-4 mb-12 mt-8">
 						<li className="flex items-start gap-4">
 							<span className="w-6 h-6 border-4 border-black rounded-full flex-shrink-0 mt-1"></span>
 							<span className="text-lg text-gray-700 font-medium leading-relaxed">
-								Inspire future generations of architects and artists to think free from conventional
-								design.
+								Inspirowanie przyszłych pokoleń architektów i artystów do myślenia wolnym od konwencjonalnego
+								designu.
 							</span>
 						</li>
 						<li className="flex items-start gap-4">
 							<span className="w-6 h-6 border-4 border-black rounded-full flex-shrink-0 mt-1"></span>
 							<span className="text-lg text-gray-700 font-medium leading-relaxed">
-								Visitors to a sculptural building are invited to interact with the architecture.
+								Odwiedzający rzeźbiarski budynek są zapraszani do interakcji z architekturą.
 							</span>
 						</li>
 						<li className="flex items-start gap-4">
 							<span className="w-6 h-6 border-4 border-black rounded-full flex-shrink-0 mt-1"></span>
 							<span className="text-lg text-gray-700 font-medium leading-relaxed">
-								Architecture is the idea that buildings can evoke an emotional response.
+								Architektura to idea, że budynki mogą wywoływać odpowiedź emocjonalną.
 							</span>
 						</li>
 					</ul>
@@ -65,14 +65,14 @@ export default function BlogDetailContent() {
 					<img
 						src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
 						className="w-full h-full object-cover hover:scale-110 transition duration-700"
-						alt="Interior"
+						alt="Wnętrze"
 					/>
 				</div>
 				<div className="overflow-hidden rounded-lg h-[500px] anim-fade-up">
 					<img
 						src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop"
 						className="w-full h-full object-cover hover:scale-110 transition duration-700"
-						alt="Stairs"
+						alt="Schody"
 					/>
 				</div>
 			</div>
@@ -85,8 +85,8 @@ export default function BlogDetailContent() {
 					</div>
 					<blockquote className="text-center">
 						<p className="text-3xl md:text-4xl font-medium text-black leading-tight italic mb-0">
-							&quot;Every surface of the building is adorned with symbolic carvings, mosaics, and organic
-							forms that evoke the natural world, creating a sense of fluidity and movement.&quot;
+							&quot;Każda powierzchnia budynku jest ozdobiona symbolicznymi rzeźbami, mozaikami i organicznymi
+							formami, które przywołują świat naturalny, tworząc poczucie płynności i ruchu.&quot;
 						</p>
 					</blockquote>
 				</div>
@@ -94,16 +94,16 @@ export default function BlogDetailContent() {
 				{/* Section 3 */}
 				<div className="anim-fade-up">
 					<h2 className="text-4xl md:text-5xl font-medium mb-8 leading-tight tracking-tight">
-						Surrounding Architecture And The Public Space
+						Otaczająca Architektura i Przestrzeń Publiczna
 					</h2>
 					<p className="text-gray-600 text-xl leading-relaxed mb-8">
-						These structures are not just places to live, work, or play they are experiences in themselves.
-						Visitors to a sculptural building are invited to interact with the architecture, to move through
-						it, and to experience how light, shadow, and space shift as they explore.
+						Te struktury to nie tylko miejsca do życia, pracy czy zabawy - to same w sobie doświadczenia.
+						Odwiedzający rzeźbiarski budynek są zapraszani do interakcji z architekturą, poruszania się przez
+						nią i doświadczania, jak światło, cień i przestrzeń zmieniają się podczas eksploracji.
 					</p>
 					<p className="text-gray-600 text-xl leading-relaxed">
-						This dynamic interaction between the user and the structure creates a multi-sensory experience
-						that is often missing from more traditional forms of architecture.
+						Ta dynamiczna interakcja między użytkownikiem a strukturą tworzy wielozmysłowe doświadczenie, które
+						często brakuje w bardziej tradycyjnych formach architektury.
 					</p>
 				</div>
 			</div>

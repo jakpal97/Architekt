@@ -5,14 +5,14 @@ import Link from 'next/link'
 const relatedPosts = [
 	{
 		slug: 'sculptural-buildings',
-		category: 'Interior',
-		title: 'The Intersection of Art and Architecture to Creating Sculptural Buildings',
+		category: 'Wnętrze',
+		title: 'Punkt Przecięcia Sztuki i Architektury: Tworzenie Rzeźbiarskich Budynków',
 		image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop',
 	},
 	{
 		slug: 'urban-challenges',
-		category: 'Commercial',
-		title: '5 Challenges in Urban Architecture and How to Overcome Them',
+		category: 'Komercyjne',
+		title: '5 Wyzwań w Architekturze Miejskiej i Jak Je Przezwyciężyć',
 		image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2787&auto=format&fit=crop',
 	},
 ]
@@ -26,9 +26,9 @@ export default function BlogDetailMore({ currentSlug }) {
 			<div className="max-w-7xl mx-auto">
 				<div className="flex items-center gap-2 mb-12">
 					<span className="text-xl">❖</span>
-					<span className="uppercase text-sm tracking-widest text-gray-500">More Articles & Blog</span>
+					<span className="uppercase text-sm tracking-widest text-gray-500">Więcej Artykułów i Blog</span>
 				</div>
-				<h2 className="text-5xl font-medium mb-16">Explore More Articles & Blog</h2>
+				<h2 className="text-5xl font-medium mb-16">Poznaj Więcej Artykułów i Blog</h2>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 					{filteredPosts.map(post => (

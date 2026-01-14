@@ -13,28 +13,28 @@ import ServiceDetailFooter from '@/components/ServiceDetailFooter'
 // Dane usług
 const servicesData = {
 	'commercial-design': {
-		title: 'Commercial Design',
+		title: 'Projektowanie Komercyjne',
 		heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop',
-		description: `In our Commercial Design service, we believe that every workspace tells a story, and we're here to help you write yours. Our expert designers work closely with you to transform your office spaces into personalized reflections of your brand and needs. Whether you're looking to create a modern, minimalist headquarters or a warm, collaborative hub, we provide tailored solutions.`,
-		descriptionExtra: `We specialize in making the most of every square foot, ensuring compliance with ADA standards while maximizing aesthetic appeal.`,
+		description: `W naszej usłudze Projektowania Komercyjnego wierzymy, że każde miejsce pracy opowiada historię, a my jesteśmy tutaj, aby pomóc Ci ją napisać. Nasi eksperci projektanci ściśle współpracują z Tobą, aby przekształcić Twoje przestrzenie biurowe w spersonalizowane odzwierciedlenia Twojej marki i potrzeb. Niezależnie od tego, czy chcesz stworzyć nowoczesną, minimalistyczną siedzibę, czy ciepłe, współpracujące centrum, zapewniamy dostosowane rozwiązania.`,
+		descriptionExtra: `Specjalizujemy się w maksymalnym wykorzystaniu każdego metra kwadratowego, zapewniając zgodność ze standardami dostępności przy jednoczesnym maksymalizowaniu estetyki.`,
 	},
 	'architectural-design': {
-		title: 'Architectural Design',
+		title: 'Projektowanie Architektoniczne',
 		heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
-		description: `Our Architectural Design service transforms your vision into reality through innovative structural solutions. We combine artistic expression with engineering precision to create buildings that inspire and endure.`,
-		descriptionExtra: `From concept to completion, we guide you through every phase of the architectural journey.`,
+		description: `Nasza usługa Projektowania Architektonicznego przekształca Twoją wizję w rzeczywistość poprzez innowacyjne rozwiązania strukturalne. Łączymy ekspresję artystyczną z precyzją inżynierską, aby tworzyć budynki, które inspirują i przetrwają.`,
+		descriptionExtra: `Od koncepcji do realizacji, prowadzimy Cię przez każdą fazę podróży architektonicznej.`,
 	},
 	'interior-design': {
-		title: 'Interior Design',
+		title: 'Projektowanie Wnętrz',
 		heroImage: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop',
-		description: `Our Interior Design service focuses on creating spaces that reflect your personality while maximizing functionality. We carefully curate colors, textures, and furnishings to craft environments that feel both beautiful and livable.`,
-		descriptionExtra: `Every detail matters - from lighting to layout, we ensure your space works perfectly for you.`,
+		description: `Nasza usługa Projektowania Wnętrz skupia się na tworzeniu przestrzeni, które odzwierciedlają Twoją osobowość, jednocześnie maksymalizując funkcjonalność. Starannie dobieramy kolory, faktury i wyposażenie, aby tworzyć środowiska, które są zarówno piękne, jak i przyjazne do życia.`,
+		descriptionExtra: `Każdy szczegół ma znaczenie - od oświetlenia po układ, zapewniamy, że Twoja przestrzeń działa idealnie dla Ciebie.`,
 	},
 	'home-decoration': {
-		title: 'Home Decoration',
+		title: 'Dekoracja Wnętrz',
 		heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
-		description: `Our Home Decoration service brings warmth and character to your living spaces. We integrate natural elements with thoughtful design to create environments that feel personal, organic, and inherently peaceful.`,
-		descriptionExtra: `From furniture selection to color consultation, we help you create a home that truly feels like yours.`,
+		description: `Nasza usługa Dekoracji Wnętrz wnosi ciepło i charakter do Twoich przestrzeni życiowych. Integrujemy elementy naturalne z przemyślanym designem, aby tworzyć środowiska, które są osobiste, organiczne i z natury spokojne.`,
+		descriptionExtra: `Od doboru mebli po konsultację kolorystyczną, pomagamy Ci stworzyć dom, który naprawdę czuje się jak Twój.`,
 	},
 }
 
@@ -48,7 +48,8 @@ export default function ServiceDetail({ params }) {
 		<>
 			<div
 				id="loader"
-				className="fixed inset-0 bg-white z-[9999] flex items-center justify-center pointer-events-none"></div>
+				className="fixed inset-0 bg-white z-[9999] flex items-center justify-center pointer-events-none"
+			></div>
 
 			<ServiceDetailNavbar />
 			<ServiceDetailHeader title={service.title} />

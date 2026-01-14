@@ -20,9 +20,9 @@ export default function ServiceDetailCTA() {
 			</video>
 			<div className="absolute inset-0 bg-black/40 z-10"></div>
 			<div className="relative z-20 text-center max-w-4xl px-6">
-				<h2 className="text-5xl md:text-6xl font-medium mb-8">Ready to Transform Your Space?</h2>
+				<h2 className="text-5xl md:text-6xl font-medium mb-8">Gotowy Przekształcić Swoją Przestrzeń?</h2>
 				<button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition">
-					Get a Quote →
+					Otrzymaj Wycenę →
 				</button>
 			</div>
 		</section>

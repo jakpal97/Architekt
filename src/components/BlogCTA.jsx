@@ -24,17 +24,17 @@ export default function BlogCTA() {
 
 			<div className="relative z-20 text-center max-w-4xl px-6">
 				<h2 className="text-5xl md:text-7xl font-medium mb-8 leading-tight tracking-tight" id="cta-heading">
-					Have a Story to Tell?
+					Masz Historię do Opowiedzenia?
 					<br />
-					Let&apos;s Build It.
+					Stwórzmy Ją Razem.
 				</h2>
 				<p className="text-gray-200 text-lg mb-12 max-w-2xl mx-auto">
-					Join our newsletter to get the latest architectural insights or start your own project with us
-					today.
+					Dołącz do naszego newslettera, aby otrzymywać najnowsze spostrzeżenia architektoniczne lub rozpocznij
+					własny projekt z nami już dziś.
 				</p>
 				<div className="flex gap-4 justify-center">
 					<button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition flex items-center gap-2">
-						Contact Us <span>→</span>
+						Skontaktuj Się <span>→</span>
 					</button>
 				</div>
 			</div>

@@ -3,10 +3,10 @@
 import Link from 'next/link'
 
 const services = [
-	{ slug: 'commercial-design', title: 'Commercial Design' },
-	{ slug: 'architectural-design', title: 'Architectural Design' },
-	{ slug: 'interior-design', title: 'Interior Design' },
-	{ slug: 'home-decoration', title: 'Home Decoration' },
+	{ slug: 'commercial-design', title: 'Projektowanie Komercyjne' },
+	{ slug: 'architectural-design', title: 'Projektowanie Architektoniczne' },
+	{ slug: 'interior-design', title: 'Projektowanie Wnętrz' },
+	{ slug: 'home-decoration', title: 'Dekoracja Wnętrz' },
 ]
 
 export default function ServiceDetailSidebar({ currentSlug }) {
@@ -14,7 +14,7 @@ export default function ServiceDetailSidebar({ currentSlug }) {
 		<div className="sticky top-[120px] space-y-12">
 			{/* Other Services */}
 			<div className="bg-gray-50 p-8 rounded-2xl">
-				<h3 className="text-2xl font-bold mb-8">Other Services</h3>
+				<h3 className="text-2xl font-bold mb-8">Inne Usługi</h3>
 				<div className="flex flex-col gap-4">
 					{services.map(service => (
 						<Link
@@ -34,20 +34,20 @@ export default function ServiceDetailSidebar({ currentSlug }) {
 
 			{/* Book Service Form */}
 			<div className="bg-white border border-gray-200 p-8 rounded-2xl shadow-sm">
-				<h3 className="text-2xl font-bold mb-8">Book Service</h3>
+				<h3 className="text-2xl font-bold mb-8">Zamów Usługę</h3>
 				<form action="#">
 					<input
 						type="text"
-						placeholder="Your Name"
+						placeholder="Twoje Imię"
 						className="w-full p-4 border border-gray-200 rounded mb-4 outline-none focus:border-black transition"
 					/>
 					<input
 						type="email"
-						placeholder="Your Email"
+						placeholder="Twój Email"
 						className="w-full p-4 border border-gray-200 rounded mb-4 outline-none focus:border-black transition"
 					/>
 					<textarea
-						placeholder="Write your Message"
+						placeholder="Napisz swoją wiadomość"
 						rows="4"
 						className="w-full p-4 border border-gray-200 rounded mb-4 outline-none focus:border-black transition resize-none"
 					></textarea>
@@ -55,7 +55,7 @@ export default function ServiceDetailSidebar({ currentSlug }) {
 						type="submit"
 						className="w-full bg-black text-white py-4 rounded-lg font-medium hover:bg-gray-800 transition"
 					>
-						Send Message
+						Wyślij Wiadomość
 					</button>
 				</form>
 			</div>

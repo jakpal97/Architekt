@@ -6,29 +6,29 @@ const services = [
 	{
 		number: '01',
 		slug: 'home-decoration',
-		title: 'Home Decoration',
+		title: 'Dekoracja Wnętrz',
 		description:
-			'Integrating the natural environment with architectural design through outdoor space planning. We focus on curating spaces that feel personal, organic, and inherently peaceful.',
+			'Integracja naturalnego środowiska z architekturą poprzez planowanie przestrzeni zewnętrznych. Skupiamy się na tworzeniu przestrzeni, które są osobiste, organiczne i z natury spokojne.',
 		image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
-		features: ['Furniture Selection', 'Color Consultation', 'Lighting Design'],
+		features: ['Dobór Mebli', 'Konsultacja Kolorystyczna', 'Projektowanie Oświetlenia'],
 		reverse: false,
 	},
 	{
 		number: '02',
 		slug: 'interior-design',
-		title: 'Interior Design',
+		title: 'Projektowanie Wnętrz',
 		description:
-			'Designing functional, aesthetically pleasing interiors that complement the architecture. We balance form and function to create workspaces and homes that inspire creativity.',
+			'Projektowanie funkcjonalnych, estetycznie przyjemnych wnętrz, które uzupełniają architekturę. Łączymy formę i funkcję, aby tworzyć przestrzenie biurowe i domowe, które inspirują kreatywność.',
 		image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop',
-		features: ['Space Planning', 'Custom Millwork', 'Material Selection'],
+		features: ['Planowanie Przestrzeni', 'Indywidualne Stolarstwo', 'Dobór Materiałów'],
 		reverse: true,
 	},
 	{
 		number: '03',
 		slug: 'architectural-design',
-		title: 'Architectural Design',
+		title: 'Projektowanie Architektoniczne',
 		description:
-			"Creating initial design concepts, sketches, and ideas based on the client's vision. From skyscrapers to boutique villas, we shape the skyline.",
+			'Tworzenie początkowych koncepcji projektowych, szkiców i pomysłów opartych na wizji klienta. Od wieżowców po ekskluzywne wille, kształtujemy panoramę miasta.',
 		image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
 		features: [],
 		reverse: false,
@@ -36,9 +36,9 @@ const services = [
 	{
 		number: '04',
 		slug: 'commercial-design',
-		title: 'Commercial Design',
+		title: 'Projektowanie Komercyjne',
 		description:
-			'Designing spaces to be inclusive and accessible, complying with new ADA standards. We build retail and office environments that drive business growth.',
+			'Projektowanie przestrzeni inkluzywnych i dostępnych, zgodnych z nowymi standardami dostępności. Budujemy środowiska handlowe i biurowe, które napędzają wzrost biznesowy.',
 		image: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=1932&auto=format&fit=crop',
 		features: [],
 		reverse: true,
@@ -82,7 +82,7 @@ export default function ServicesList() {
 								href={`/uslugi/${service.slug}`}
 								className="border border-black rounded-full px-8 py-3 text-sm hover:bg-black hover:text-white transition inline-flex items-center gap-2"
 							>
-								View Projects <span>→</span>
+								Zobacz Projekty <span>→</span>
 							</Link>
 						</div>
 					</div>

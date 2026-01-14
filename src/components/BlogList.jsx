@@ -5,31 +5,31 @@ import Link from 'next/link'
 const blogPosts = [
 	{
 		slug: 'biophilic-design',
-		category: 'Architecture',
-		title: 'Blending Nature with Urban Spaces: The Rise of The New Biophilic Design',
+		category: 'Architektura',
+		title: 'Łączenie Natury z Przestrzeniami Miejskimi: Wzrost Nowego Biophilic Design',
 		excerpt:
-			'Exploring how modern architects are integrating living green walls and natural light to create healthier urban environments.',
+			'Odkrywamy, jak nowocześni architekci integrują żywe zielone ściany i naturalne światło, aby tworzyć zdrowsze środowiska miejskie.',
 		image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
 	},
 	{
 		slug: 'sculptural-buildings',
-		category: 'Interior',
-		title: 'The Intersection of Art and Architecture to Creating Sculptural Buildings',
-		excerpt: 'How functional spaces can transcend their purpose to become inhabitable pieces of art.',
+		category: 'Wnętrze',
+		title: 'Punkt Przecięcia Sztuki i Architektury: Tworzenie Rzeźbiarskich Budynków',
+		excerpt: 'Jak funkcjonalne przestrzenie mogą przekroczyć swój cel i stać się zamieszkiwalnymi dziełami sztuki.',
 		image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop',
 	},
 	{
 		slug: 'urban-challenges',
-		category: 'Commercial',
-		title: '5 Challenges in Urban Architecture and How to Overcome Them',
-		excerpt: 'Navigating zoning laws, space constraints, and sustainability requirements in dense city centers.',
+		category: 'Komercyjne',
+		title: '5 Wyzwań w Architekturze Miejskiej i Jak Je Przezwyciężyć',
+		excerpt: 'Nawigowanie przez przepisy zagospodarowania przestrzennego, ograniczenia przestrzenne i wymagania zrównoważonego rozwoju w gęstych centrach miast.',
 		image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop',
 	},
 	{
 		slug: 'sustainable-landscaping',
-		category: 'Landscape',
-		title: 'Sustainable Landscaping in The Architecture Merging Nature with Design',
-		excerpt: 'Using native flora and water conservation techniques to create resilient outdoor spaces.',
+		category: 'Krajobraz',
+		title: 'Zrównoważone Krajobrazowanie w Architekturze: Łączenie Natury z Designem',
+		excerpt: 'Wykorzystywanie rodzimej flory i technik oszczędzania wody do tworzenia odpornych przestrzeni zewnętrznych.',
 		image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=2787&auto=format&fit=crop',
 	},
 ]
@@ -63,7 +63,7 @@ export default function BlogList() {
 
 				<div className="mt-24 text-center">
 					<button className="border border-black rounded-full px-10 py-4 text-sm font-medium hover:bg-black hover:text-white transition duration-300">
-						Load More Articles
+						Załaduj Więcej Artykułów
 					</button>
 				</div>
 			</div>

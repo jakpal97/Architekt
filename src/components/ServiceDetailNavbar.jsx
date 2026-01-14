@@ -13,23 +13,23 @@ export default function ServiceDetailNavbar() {
 			</Link>
 			<div className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-wide">
 				<Link href="/" className="hover:opacity-60 transition">
-					Home
+					Strona Główna
 				</Link>
 				<a href="#" className="hover:opacity-60 transition">
-					About
+					O Nas
 				</a>
 				<Link href="/uslugi" className="text-black font-bold">
-					Services
+					Usługi
 				</Link>
-				<a href="#" className="hover:opacity-60 transition">
+				<Link href="/blog" className="hover:opacity-60 transition">
 					Blog
-				</a>
+				</Link>
 			</div>
 			<a
 				href="#"
 				className="border border-black/20 rounded-full px-6 py-2 text-sm hover:bg-black hover:text-white transition flex items-center gap-2"
 			>
-				Contact Us <span>→</span>
+				Skontaktuj Się <span>→</span>
 			</a>
 		</nav>
 	)

@@ -3,30 +3,30 @@
 const processSteps = [
 	{
 		icon: '❖',
-		title: 'Initial Consultation',
-		description: 'Creative Analysis is the process of evaluating creative works and requirements.',
+		title: 'Konsultacja Wstępna',
+		description: 'Analiza kreatywna to proces oceny prac kreatywnych i wymagań projektowych.',
 	},
 	{
 		icon: '☀',
-		title: 'Concept Development',
-		description: 'Design sketches represent curated ideas merging creative design with function.',
+		title: 'Rozwój Koncepcji',
+		description: 'Szkice projektowe reprezentują starannie dobrane pomysły łączące kreatywny design z funkcjonalnością.',
 	},
 	{
 		icon: '▤',
-		title: 'Planning and Layout',
-		description: 'Optimizing flow and structure to ensure the space works efficiently for your team.',
+		title: 'Planowanie i Układ',
+		description: 'Optymalizacja przepływu i struktury, aby zapewnić efektywne działanie przestrzeni dla Twojego zespołu.',
 	},
 	{
 		icon: '★',
-		title: 'Quality Check',
-		description: 'Final review of materials, finishes, and implementation to ensure perfection.',
+		title: 'Kontrola Jakości',
+		description: 'Końcowy przegląd materiałów, wykończeń i realizacji, aby zapewnić perfekcję.',
 	},
 ]
 
 const designProcessPoints = [
-	'Creative analysis begins with exploring the wide range of possibilities.',
-	'These patterns may inform decisions about what elements work.',
-	'Collaborative brainstorming sessions and feedback loops.',
+	'Analiza kreatywna rozpoczyna się od zbadania szerokiego zakresu możliwości.',
+	'Te wzorce mogą informować decyzje o tym, które elementy działają.',
+	'Sesje wspólnego burzenia mózgów i pętle informacji zwrotnej.',
 ]
 
 export default function ServiceDetailContent({ description, descriptionExtra }) {
@@ -34,7 +34,7 @@ export default function ServiceDetailContent({ description, descriptionExtra }) 
 		<div className="space-y-16">
 			{/* Description */}
 			<div>
-				<h2 className="text-3xl font-bold mb-6">Service Description</h2>
+				<h2 className="text-3xl font-bold mb-6">Opis Usługi</h2>
 				<p className="text-gray-600 text-lg leading-relaxed mb-6">{description}</p>
 				<p className="text-gray-600 text-lg leading-relaxed">{descriptionExtra}</p>
 			</div>
@@ -57,16 +57,16 @@ export default function ServiceDetailContent({ description, descriptionExtra }) 
 				<img
 					src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop"
 					className="w-full h-full object-cover hover:scale-105 transition duration-700"
-					alt="Meeting"
+					alt="Spotkanie"
 				/>
 			</div>
 
 			{/* Design Process */}
 			<div>
-				<h2 className="text-3xl font-bold mb-6">Our Design Process</h2>
+				<h2 className="text-3xl font-bold mb-6">Nasz Proces Projektowy</h2>
 				<p className="text-gray-600 mb-8">
-					Whether it&apos;s built-in shelving, custom cabinetry, or stylish storage, we ensure that every
-					item has its place.
+					Czy to wbudowane półki, indywidualne meble, czy stylowe przechowywanie, zapewniamy, że każdy
+					przedmiot ma swoje miejsce.
 				</p>
 				<ul className="space-y-4">
 					{designProcessPoints.map((point, index) => (
@@ -82,10 +82,11 @@ export default function ServiceDetailContent({ description, descriptionExtra }) 
 
 			{/* Conclusion */}
 			<div className="bg-gray-50 p-8 rounded-xl border-l-4 border-black">
-				<h2 className="text-2xl font-bold mb-4">Conclusion</h2>
+				<h2 className="text-2xl font-bold mb-4">Podsumowanie</h2>
 				<p className="text-gray-600">
-					Our service is about creating spaces that grow with your business. We design with longevity in
-					mind, ensuring that your space evolves with your needs and culture.
+					Nasza usługa polega na tworzeniu przestrzeni, które rosną wraz z Twoim biznesem. Projektujemy z
+					myślą o długowieczności, zapewniając, że Twoja przestrzeń ewoluuje wraz z Twoimi potrzebami i
+					kulturą.
 				</p>
 			</div>
 		</div>

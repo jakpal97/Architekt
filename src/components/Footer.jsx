@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 export default function Footer() {
 	return (
 		<footer className="bg-white pt-24 pb-8 px-6 md:px-12 border-t border-gray-100" id="main-footer">
@@ -13,93 +15,97 @@ export default function Footer() {
 							Arcbes
 						</div>
 						<p className="text-gray-500 text-sm leading-relaxed">
-							We take pride in offering customized cleaning services that meet your specific needs.
+							Jesteśmy dumni z oferowania spersonalizowanych usług architektonicznych, które spełniają Twoje
+							specyficzne potrzeby.
 						</p>
 						<div className="flex gap-4">
 							<a
 								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
+								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
+							>
 								IG
 							</a>
 							<a
 								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
+								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
+							>
 								TW
 							</a>
 							<a
 								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
+								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
+							>
 								FB
 							</a>
 						</div>
 					</div>
 
 					<div>
-						<h4 className="font-bold mb-6">Pages</h4>
+						<h4 className="font-bold mb-6">Strony</h4>
 						<ul className="space-y-4 text-gray-600 text-sm">
 							<li>
-								<a href="#" className="hover:text-black">
-									Home Page
-								</a>
+								<Link href="/" className="hover:text-black">
+									Strona Główna
+								</Link>
 							</li>
 							<li>
 								<a href="#" className="hover:text-black">
-									About Us
+									O Nas
 								</a>
 							</li>
 							<li>
-								<a href="#" className="hover:text-black">
-									Services
-								</a>
+								<Link href="/uslugi" className="hover:text-black">
+									Usługi
+								</Link>
 							</li>
 							<li>
 								<a href="#" className="hover:text-black">
-									Contact
+									Kontakt
 								</a>
 							</li>
 							<li>
-								<a href="#" className="hover:text-black">
+								<Link href="/blog" className="hover:text-black">
 									Blog
-								</a>
+								</Link>
 							</li>
 						</ul>
 					</div>
 
 					<div>
-						<h4 className="font-bold mb-6">Utility Pages</h4>
+						<h4 className="font-bold mb-6">Strony Pomocnicze</h4>
 						<ul className="space-y-4 text-gray-600 text-sm">
 							<li>
 								<a href="#" className="hover:text-black">
-									Style Guide
+									Przewodnik Stylu
 								</a>
 							</li>
 							<li>
 								<a href="#" className="hover:text-black">
-									Licenses
+									Licencje
 								</a>
 							</li>
 							<li>
 								<a href="#" className="hover:text-black">
-									Changelog
+									Historia Zmian
 								</a>
 							</li>
 							<li>
 								<a href="#" className="hover:text-black">
-									Not Found
+									Nie Znaleziono
 								</a>
 							</li>
 						</ul>
 					</div>
 
 					<div>
-						<h4 className="font-bold mb-6">Address</h4>
+						<h4 className="font-bold mb-6">Adres</h4>
 						<ul className="space-y-4 text-gray-600 text-sm">
 							<li>info@arcbes.com</li>
-							<li>(555) 345-6789</li>
+							<li>+48 555 345 678</li>
 							<li>
-								567 Jac Spruce Crescent,
+								ul. Przykładowa 123,
 								<br />
-								Montreal, QC H3A 2K3
+								Warszawa, 00-000
 							</li>
 						</ul>
 					</div>
@@ -108,7 +114,8 @@ export default function Footer() {
 				<div className="border-b border-gray-200 mb-8 overflow-hidden">
 					<h1
 						className="text-[19vw] leading-[0.8] font-bold text-black flex justify-between tracking-tighter w-full select-none"
-						aria-label="Arcbes">
+						aria-label="Arcbes"
+					>
 						<div className="overflow-hidden">
 							<span className="block footer-letter">A</span>
 						</div>
@@ -133,8 +140,8 @@ export default function Footer() {
 				<div className="flex flex-col md:flex-row justify-between text-xs text-gray-500 py-4">
 					<p>Copyright © Arcbes</p>
 					<div className="flex gap-8">
-						<p>Designed by Brandbes</p>
-						<p>Powered by Webflow</p>
+						<p>Zaprojektowane przez Brandbes</p>
+						<p>Napędzane przez Next.js</p>
 					</div>
 				</div>
 			</div>

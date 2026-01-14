@@ -22,11 +22,11 @@ export default function BlogDetailCTA() {
 			<div className="absolute inset-0 bg-black/40 z-10"></div>
 			<div className="relative z-20 text-center max-w-4xl px-6">
 				<h2 className="text-5xl md:text-7xl font-medium mb-8 leading-tight tracking-tight" id="cta-heading">
-					Have a Project in Mind?
+					Masz Projekt w Głowie?
 				</h2>
 				<div className="flex gap-4 justify-center">
 					<button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition flex items-center gap-2">
-						Let&apos;s Talk <span>→</span>
+						Porozmawiajmy <span>→</span>
 					</button>
 				</div>
 			</div>
