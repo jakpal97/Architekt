@@ -12,6 +12,7 @@ import Testimonials from '@/components/Testimonials';
 import Blog from '@/components/Blog';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import LogoCarousel from '@/components/LogoCarousel';
 
 export default function Home() {
   useAnimations();
@@ -21,6 +22,7 @@ export default function Home() {
       <Loader />
       <Navbar />
       <Hero />
+      <LogoCarousel/>
       <About />
       <Services />
       <Works />

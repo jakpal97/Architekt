@@ -8,7 +8,7 @@ export default function Works() {
 		>
 			<div className="absolute top-12 left-0 w-full text-center z-20">
 				<h2 className="text-[12vw] leading-none font-medium tracking-tighter" id="recent-text">
-					Najnowsze
+					Wybrane
 				</h2>
 			</div>
 
@@ -19,7 +19,7 @@ export default function Works() {
 
 				<div id="work-img-wrapper" className="w-0 h-[10vw] overflow-hidden mx-0 relative rounded-lg">
 					<img
-						src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2084&auto=format&fit=crop"
+						src="/Obraz5.png"
 						id="work-main-img"
 						className="w-full h-full object-cover scale-[2]"
 						alt="Najnowsze Projekty"

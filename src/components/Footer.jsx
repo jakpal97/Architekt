@@ -12,29 +12,25 @@ export default function Footer() {
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 								<path d="M2 20h20v2H2v-2zm2-8h4v6H4v-6zm6-6h4v12h-4V6zm6-4h4v16h-4V2z" />
 							</svg>
-							Arcbes
+							WPM Solutions
 						</div>
 						<p className="text-gray-500 text-sm leading-relaxed">
-							Jesteśmy dumni z oferowania spersonalizowanych usług architektonicznych, które spełniają Twoje
-							specyficzne potrzeby.
+							Jesteśmy zdumni z naszych usług produkcji eventów, które spełniają Twoje potrzeby.
 						</p>
 						<div className="flex gap-4">
 							<a
 								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
-							>
+								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
 								IG
 							</a>
 							<a
 								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
-							>
+								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
 								TW
 							</a>
 							<a
 								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
-							>
+								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
 								FB
 							</a>
 						</div>
@@ -112,29 +108,25 @@ export default function Footer() {
 				</div>
 
 				<div className="border-b border-gray-200 mb-8 overflow-hidden">
-					<h1
-						className="text-[19vw] leading-[0.8] font-bold text-black flex justify-between tracking-tighter w-full select-none"
-						aria-label="Arcbes"
-					>
-						<div className="overflow-hidden">
-							<span className="block footer-letter">A</span>
+					<div className="text-black font-bold tracking-tighter w-full select-none" aria-label="WPM Solutions">
+						{/* Pierwsza linia: WPM */}
+						<div className="text-[22vw] leading-[0.8] flex justify-between">
+							{['W', 'P', 'M'].map((letter, i) => (
+								<div key={`line1-${i}`} className="overflow-hidden">
+									<span className="block footer-letter">{letter}</span>
+								</div>
+							))}
 						</div>
-						<div className="overflow-hidden">
-							<span className="block footer-letter">r</span>
+
+						{/* Druga linia: Solutions */}
+						<div className="text-[14.5vw] leading-[0.8] flex justify-between mt-2">
+							{['S', 'o', 'l', 'u', 't', 'i', 'o', 'n', 's'].map((letter, i) => (
+								<div key={`line2-${i}`} className="overflow-hidden">
+									<span className="block footer-letter">{letter}</span>
+								</div>
+							))}
 						</div>
-						<div className="overflow-hidden">
-							<span className="block footer-letter">c</span>
-						</div>
-						<div className="overflow-hidden">
-							<span className="block footer-letter">b</span>
-						</div>
-						<div className="overflow-hidden">
-							<span className="block footer-letter">e</span>
-						</div>
-						<div className="overflow-hidden">
-							<span className="block footer-letter">s</span>
-						</div>
-					</h1>
+					</div>
 				</div>
 
 				<div className="flex flex-col md:flex-row justify-between text-xs text-gray-500 py-4">

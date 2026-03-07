@@ -1,51 +1,159 @@
 'use client'
 
-export default function Testimonials() {
-	return (
-		<section className="py-32 px-6 md:px-12 bg-white overflow-hidden" id="testimonials">
-			<div className="max-w-7xl mx-auto">
-				<div className="flex items-center gap-2 mb-12">
-					<span className="text-xl">❖</span>
-					<span className="uppercase text-sm tracking-widest text-gray-500">Opinie Klientów</span>
-				</div>
+import React, { useRef, useState, useEffect, Suspense } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { useGLTF, Center, ContactShadows, Environment, OrbitControls, Float } from '@react-three/drei'
 
-				<h2 className="text-6xl md:text-7xl font-medium mb-24 tracking-tight">Co Mówią Nasi Klienci</h2>
+// Skala głównego modelu per krok: 01, 02, 03, 04
+const MODEL_SCALES = [2.5, 1.2, 0.4, 0.3]
 
-				<div className="flex flex-col md:flex-row gap-16 items-center">
-					<div className="w-full md:w-1/2 relative z-10">
-						<p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-light mb-12">
-							&quot;Współpraca z Arcbes Architecture była inspirującą podróżą. Ich umiejętność łączenia
-							nowoczesnego designu z zrównoważonym rozwojem zaowocowała piękną, funkcjonalną przestrzenią,
-							która odzwierciedla nasze wartości. Nie tylko stworzyli oszałamiający dom, ale ich
-							skupienie na energii odnawialnej przekroczyło nasze oczekiwania.&quot;
-						</p>
+// --- Inteligentny Renderer Modeli (obsługujący dwa obiekty) ---
+function ModelManager({ url, url2, activeIndex, myIndex }) {
+  const { scene: mainScene } = useGLTF(url)
+  const secondModel = url2 ? useGLTF(url2) : null
 
-						<div className="flex justify-between items-end">
-							<div>
-								<h4 className="text-xl font-bold">Jan Kowalski</h4>
-								<p className="text-gray-500 mt-1">Dyrektor w Luxuries</p>
-							</div>
+  if (activeIndex !== myIndex) return null
 
-							<div className="flex gap-4">
-								<button className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition duration-300">
-									←
-								</button>
-								<button className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition duration-300">
-									→
-								</button>
-							</div>
-						</div>
-					</div>
+  return (
+    <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.4}>
+      <Center top>
+        <group rotation={[0, -Math.PI / 4, 0]}>
+          <primitive object={mainScene} scale={MODEL_SCALES[myIndex]} position={[0, 0, 0]} />
+          
+          {secondModel && (
+            <primitive 
+              object={secondModel.scene} 
+              scale={1.8} 
+              position={[1.5, -0.5, 0.5]}
+              rotation={[0.2, 0.5, 1.2]}
+            />
+          )}
+        </group>
+      </Center>
+    </Float>
+  )
+}
 
-					<div className="w-full md:w-1/2 h-[600px] overflow-hidden rounded-sm relative">
-						<img
-							src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
-							className="w-full h-full object-cover testimonial-img scale-110"
-							alt="Portret Klienta"
-						/>
-					</div>
-				</div>
-			</div>
-		</section>
-	)
+const STEPS = [
+  { 
+    id: '01', 
+    title: 'Brief', 
+    model: '/step01.glb',
+    model2: '/step01-2.glb',
+    desc: 'Analizujemy Twoje potrzeby i cele biznesowe. Tworzymy fundament pod projekt.',
+    details: ['KICKOFF', 'STRATEGIA']
+  },
+  { 
+    id: '02', 
+    title: 'Projekt', 
+    model: '/step02.glb', 
+    desc: 'Przekładamy wizję na konkretne rzuty i wizualizacje 3D.',
+    details: ['DESIGN', 'RENDER']
+  },
+  { 
+    id: '03', 
+    title: 'Produkcja', 
+    model: '/step03.glb', 
+    desc: 'Rzeczywista budowa konstrukcji w naszym parku maszynowym.',
+    details: ['CNC', 'DRUK']
+  },
+  { 
+    id: '04', 
+    title: 'Montaż', 
+    model: '/step04.glb', 
+    desc: 'Instalacja gotowej przestrzeni u klienta. Finał procesu.',
+    details: ['LOGISTYKA', 'SETUP']
+  },
+]
+
+export default function UltimateProcess() {
+  const [activeStep, setActiveStep] = useState(0)
+  const stepRefs = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveStep(parseInt(entry.target.getAttribute('data-index')))
+          }
+        })
+      },
+      { threshold: 0.5, rootMargin: "-20% 0px -20% 0px" }
+    )
+    stepRefs.current.forEach((ref) => ref && observer.observe(ref))
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section className="aw-sec">
+      <div className="aw-top-header">
+        <h2 className="aw-main-title">Kroki współpracy</h2>
+      </div>
+
+      <div className="aw-container">
+        <div className="aw-left">
+          {STEPS.map((step, i) => (
+            <div 
+              key={step.id} 
+              className={`aw-step ${activeStep === i ? 'is-active' : ''}`}
+              data-index={i}
+              ref={(el) => (stepRefs.current[i] = el)}
+            >
+              <span className="aw-num">{step.id}</span>
+              <h3 className="aw-title">{step.title}</h3>
+              <p className="aw-desc">{step.desc}</p>
+              <div className="aw-tags">
+                {step.details.map(d => <span key={d} className="aw-tag">{d}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="aw-right">
+          <div className="aw-sticky-canvas">
+            <Canvas shadows camera={{ position: [0, 2, 6], fov: 35 }}>
+              <Suspense fallback={null}>
+                <ambientLight intensity={0.6} />
+                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1.5} castShadow />
+                
+                {STEPS.map((s, i) => (
+                  <ModelManager 
+                    key={s.id} 
+                    url={s.model} 
+                    url2={s.model2} 
+                    activeIndex={activeStep} 
+                    myIndex={i} 
+                  />
+                ))}
+
+                <OrbitControls enableZoom={false} enablePan={false} minPolarAngle={Math.PI / 2.5} maxPolarAngle={Math.PI / 2} />
+                <ContactShadows position={[0, -1.2, 0]} opacity={0.3} scale={10} blur={2.5} far={4} />
+                <Environment preset="city" />
+              </Suspense>
+            </Canvas>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        .aw-sec { background: #fff; padding: 10rem 0; }
+        .aw-top-header { max-width: 1400px; margin: 0 auto 8rem; padding: 0 4rem; }
+        .aw-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; color: #bbb; font-family: monospace; display: block; margin-bottom: 1rem; }
+        .aw-main-title { font-size: 4.5rem; font-weight: 500; letter-spacing: -0.04em; }
+        .aw-main-title em { font-style: italic; color: #ddd; font-weight: 400; }
+        .aw-container { max-width: 1400px; margin: 0 auto; padding: 0 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
+        .aw-left { display: flex; flex-direction: column; gap: 22rem; padding-bottom: 20rem; }
+        .aw-step { opacity: 0.1; transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .aw-step.is-active { opacity: 1; transform: translateX(10px); }
+        .aw-num { font-family: monospace; color: #000; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem; display: block; }
+        .aw-title { font-size: 4rem; font-weight: 500; margin-bottom: 1.5rem; line-height: 0.9; }
+        .aw-desc { font-size: 1.2rem; color: #555; line-height: 1.7; max-width: 420px; margin-bottom: 2.5rem; }
+        .aw-tag { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; color: #aaa; border: 1px solid #eee; padding: 0.4rem 1rem; border-radius: 100px; margin-right: 0.8rem; }
+        .aw-right { position: relative; height: 100%; }
+        .aw-sticky-canvas { position: sticky; top: 15vh; height: 70vh; width: 100%; display: flex; align-items: center; justify-content: center; cursor: grab; }
+        @media (max-width: 1024px) { .aw-container { grid-template-columns: 1fr; } .aw-right { display: none; } .aw-left { gap: 10rem; } }
+      `}</style>
+    </section>
+  )
 }
