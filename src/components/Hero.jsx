@@ -39,6 +39,7 @@ export default function Hero() {
 >
   <video
     src="/Generowanie_filmu_z_obrazu.mp4"
+    poster="/levis.png"
     autoPlay
     loop
     muted
