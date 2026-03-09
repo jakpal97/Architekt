@@ -5,43 +5,53 @@ import Link from 'next/link'
 const services = [
 	{
 		number: '01',
-		slug: 'home-decoration',
-		title: 'Dekoracja Wnętrz',
+		slug: 'projekty',
+		title: 'Projekty & Koncepcja',
 		description:
-			'Integracja naturalnego środowiska z architekturą poprzez planowanie przestrzeni zewnętrznych. Skupiamy się na tworzeniu przestrzeni, które są osobiste, organiczne i z natury spokojne.',
-		image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
-		features: ['Dobór Mebli', 'Konsultacja Kolorystyczna', 'Projektowanie Oświetlenia'],
+			'Każdy projekt zaczyna się od idei. Tworzymy koncepcje przestrzeni eventowych — od szkicu po fotorealistyczną wizualizację 3D. Zanim wbijemy pierwszy gwóźdź, widzisz dokładnie efekt końcowy',
+		image: '/Obraz1.jpg',
+		features: ['KONCEPCJA', 'WIZUALIZACJA 3D', 'DOBÓR MATERIAŁÓW'],
 		reverse: false,
 	},
 	{
 		number: '02',
-		slug: 'interior-design',
-		title: 'Projektowanie Wnętrz',
+		slug: 'outdoor-events',
+		title: ' Kampanie Outdoor & Produkcja Eventowa',
 		description:
-			'Projektowanie funkcjonalnych, estetycznie przyjemnych wnętrz, które uzupełniają architekturę. Łączymy formę i funkcję, aby tworzyć przestrzenie biurowe i domowe, które inspirują kreatywność.',
-		image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop',
-		features: ['Planowanie Przestrzeni', 'Indywidualne Stolarstwo', 'Dobór Materiałów'],
+			'Budujemy przestrzenie, które zatrzymują ludzi w miejscu. Stoiska targowe, strefy aktywacji marki, zabudowy eventowe — projektowane z myślą o Twoim kliencie i jego emocjach.',
+		image: '/Obraz2.jpg',
+		features: ['STOISKA TARGOWE', 'AKTYWACJE MARKI', 'PRODUKCJA EVENTOWA'],
 		reverse: true,
 	},
 	{
 		number: '03',
-		slug: 'architectural-design',
-		title: 'Projektowanie Architektoniczne',
+		slug: 'druk-wielkoformatowy',
+		title: 'Druk Wielkoformatowy',
 		description:
-			'Tworzenie początkowych koncepcji projektowych, szkiców i pomysłów opartych na wizji klienta. Od wieżowców po ekskluzywne wille, kształtujemy panoramę miasta.',
-		image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
-		features: [],
+			'Własny park maszynowy pozwala nam kontrolować każdy etap produkcji. Wielkoformatowy druk, cięcie, wyklejanie i montaż — wszystko pod jednym dachem, bez pośredników.',
+		image: '/Obraz3.jpg',
+		features: [' DRUK WIELKOFORMATOWY',' WYKLEJANIE','MONTAŻ'],
 		reverse: false,
 	},
 	{
 		number: '04',
-		slug: 'commercial-design',
-		title: 'Projektowanie Komercyjne',
+		slug: 'produkcja-nosnikow-i-kostrukcji',
+		title: 'Produkcja Nośników & Konstrukcji',
 		description:
-			'Projektowanie przestrzeni inkluzywnych i dostępnych, zgodnych z nowymi standardami dostępności. Budujemy środowiska handlowe i biurowe, które napędzają wzrost biznesowy.',
-		image: 'https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=1932&auto=format&fit=crop',
-		features: [],
+			'Specjalizujemy się w budowie konstrukcji aluminiowych i ekspozytorów na wymiar. Jeśli nie istnieje gotowe rozwiązanie — projektujemy i produkujemy je od zera.',
+		image: '/Obraz4.jpg',
+		features: ['KONSTRUKCJE ALU', 'EKSPOZYTORY','PRODUKCJA CUSTOM'],
 		reverse: true,
+	},
+	{
+		number: '05',
+		slug: 'logistyka-i-montaz',
+		title: ' Logistyka & Montaż',
+		description:
+			'Dostarczamy, montujemy i nadzorujemy. Nasz zespół obsługuje cały proces na miejscu — od załadunku po demontaż po evencie. Ty skupiasz się na gościach, my na reszcie.',
+		image: '/Obraz6.jpg',
+		features: ['TRANSPORT', 'MONTAŻ NA MIEJSCU',' DEMONTAŻ'],
+		reverse: false,
 	},
 ]
 

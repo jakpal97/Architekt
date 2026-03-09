@@ -3,10 +3,11 @@
 import Link from 'next/link'
 
 const services = [
-	{ slug: 'commercial-design', title: 'Projektowanie Komercyjne' },
-	{ slug: 'architectural-design', title: 'Projektowanie Architektoniczne' },
-	{ slug: 'interior-design', title: 'Projektowanie Wnętrz' },
-	{ slug: 'home-decoration', title: 'Dekoracja Wnętrz' },
+	{ slug: 'projekty', title: 'Projekty & Koncepcja' },
+	{ slug: 'outdoor-events', title: 'Kampanie Outdoor & Produkcja Eventowa' },
+	{ slug: 'druk-wielkoformatowy', title: 'Druk Wielkoformatowy' },
+	{ slug: 'produkcja-nosnikow-i-kostrukcji', title: 'Produkcja Nośników & Konstrukcji' },
+	{ slug: 'logistyka-i-montaz', title: 'Logistyka & Montaż' },
 ]
 
 export default function ServiceDetailSidebar({ currentSlug }) {

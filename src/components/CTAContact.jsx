@@ -44,7 +44,7 @@ export default function CTAContact() {
   return (
     <section id="contact" className="cta-wrap" ref={ref}>
 
-      {/* ── Left: Video CTA ── */}
+      {/* ── Left: Image CTA ── */}
       <div
         className="cta-left"
         style={{
@@ -53,34 +53,26 @@ export default function CTAContact() {
           transition: 'opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)',
         }}
       >
-        {/* Video background */}
-        <div className="cta-video-wrap" aria-hidden="true">
-          <video
-            className="cta-video"
-            autoPlay muted loop playsInline
-            poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
-          >
-            <source
-              src="https://player.vimeo.com/external/371836154.sd.mp4?s=d08405aa6b6b7724283597d5b1216d6833f7c460&profile_id=164&oauth2_token_id=57447761"
-              type="video/mp4"
-            />
-          </video>
-          <div className="cta-video-overlay" />
+        {/* Image background */}
+        <div className="cta-img-wrap" aria-hidden="true">
+          <img
+            className="cta-img"
+            src="/Obraz9.jpg"
+            alt=""
+          />
+          <div className="cta-img-overlay" />
         </div>
 
-        {/* Content over video */}
+        {/* Content over image */}
         <div className="cta-left-content">
-          {/* Top label */}
           <p className="cta-eyebrow">— Zaczynamy?</p>
 
-          {/* Headline */}
           <h2 className="cta-heading">
             Stwórzmy<br/>
             coś, czego<br/>
             <em>nie zapomnisz.</em>
           </h2>
 
-          {/* Stats row */}
           <div className="cta-stats">
             <div className="cta-stat">
               <span className="cta-stat-num">340+</span>
@@ -98,7 +90,6 @@ export default function CTAContact() {
             </div>
           </div>
 
-          {/* Bottom info */}
           <div className="cta-contact-info">
             <a href="mailto:hello@wpmsolutions.pl" className="cta-info-link">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -127,7 +118,6 @@ export default function CTAContact() {
         }}
       >
         {sent ? (
-          /* ── Success state ── */
           <div className="cta-success">
             <div className="cta-success-icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -144,14 +134,12 @@ export default function CTAContact() {
             </button>
           </div>
         ) : (
-          /* ── Form ── */
           <form onSubmit={handleSubmit} className="cta-form" noValidate>
             <div className="cta-form-header">
               <p className="cta-form-eyebrow">Napisz do nas</p>
               <p className="cta-form-note">Odpowiadamy w ciągu 48h</p>
             </div>
 
-            {/* Name + Company */}
             <div className="cf-row">
               <div className={`cf-field${focused === 'name' ? ' cf-field--active' : ''}`}>
                 <label className="cf-label" htmlFor="cf-name">Imię i Nazwisko</label>
@@ -175,7 +163,6 @@ export default function CTAContact() {
               </div>
             </div>
 
-            {/* Email */}
             <div className={`cf-field${focused === 'email' ? ' cf-field--active' : ''}`}>
               <label className="cf-label" htmlFor="cf-email">Adres e-mail</label>
               <input
@@ -187,7 +174,6 @@ export default function CTAContact() {
               />
             </div>
 
-            {/* Service pills */}
             <div className="cf-services">
               <span className="cf-label" style={{ display: 'block', marginBottom: '0.75rem' }}>
                 Zakres współpracy
@@ -211,7 +197,6 @@ export default function CTAContact() {
               </div>
             </div>
 
-            {/* Message */}
             <div className={`cf-field${focused === 'msg' ? ' cf-field--active' : ''}`}>
               <label className="cf-label" htmlFor="cf-msg">Wiadomość</label>
               <textarea
@@ -223,7 +208,6 @@ export default function CTAContact() {
               />
             </div>
 
-            {/* Submit */}
             <button type="submit" className="cf-submit">
               <span>Wyślij zapytanie</span>
               <span className="cf-submit-icon" aria-hidden="true">
@@ -237,10 +221,7 @@ export default function CTAContact() {
         )}
       </div>
 
-      {/* ── Styles ── */}
       <style>{`
-
-        /* Wrap */
         .cta-wrap {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -260,19 +241,18 @@ export default function CTAContact() {
           min-height: 70vh;
         }
 
-        /* Video */
-        .cta-video-wrap {
+        /* Image */
+        .cta-img-wrap {
           position: absolute; inset: 0; z-index: 0;
         }
-        .cta-video {
+        .cta-img {
           position: absolute;
-          top: 50%; left: 50%;
-          min-width: 100%; min-height: 100%;
-          width: auto; height: auto;
-          transform: translate(-50%, -50%);
+          top: 0; left: 0;
+          width: 100%; height: 100%;
           object-fit: cover;
+          object-position: center;
         }
-        .cta-video-overlay {
+        .cta-img-overlay {
           position: absolute; inset: 0;
           background: linear-gradient(
             to top,
@@ -308,7 +288,6 @@ export default function CTAContact() {
           color: rgba(255,255,255,0.7);
         }
 
-        /* Stats */
         .cta-stats {
           display: flex;
           align-items: center;
@@ -334,7 +313,6 @@ export default function CTAContact() {
           flex-shrink: 0;
         }
 
-        /* Contact info links */
         .cta-contact-info {
           display: flex; flex-direction: column; gap: 0.65rem;
         }
@@ -358,7 +336,6 @@ export default function CTAContact() {
           border-left: 1px solid #ebebeb;
         }
 
-        /* Form */
         .cta-form {
           width: 100%;
           display: flex;
@@ -387,7 +364,6 @@ export default function CTAContact() {
           font-family: monospace;
         }
 
-        /* Field */
         .cf-field {
           position: relative;
           border-bottom: 1px solid #e8e8e8;
@@ -434,11 +410,8 @@ export default function CTAContact() {
         .cf-input::placeholder { color: #ccc; }
         .cf-textarea { min-height: 90px; }
 
-        /* Service pills */
         .cf-services { padding: 1.4rem 0 1.2rem; }
-        .cf-pills {
-          display: flex; flex-wrap: wrap; gap: 0.5rem;
-        }
+        .cf-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .cf-pill {
           display: inline-flex; align-items: center; gap: 0.35rem;
           font-size: 0.65rem;
@@ -454,21 +427,10 @@ export default function CTAContact() {
           transition: all 0.2s ease;
           white-space: nowrap;
         }
-        .cf-pill:hover {
-          background: #ebebeb;
-          color: #0a0a0a;
-        }
-        .cf-pill--on {
-          background: #0a0a0a;
-          color: #fff;
-          border-color: #0a0a0a;
-        }
-        .cf-pill--on:hover {
-          background: #333;
-          color: #fff;
-        }
+        .cf-pill:hover { background: #ebebeb; color: #0a0a0a; }
+        .cf-pill--on { background: #0a0a0a; color: #fff; border-color: #0a0a0a; }
+        .cf-pill--on:hover { background: #333; color: #fff; }
 
-        /* Submit */
         .cf-submit {
           margin-top: 2rem;
           display: flex;
@@ -497,7 +459,6 @@ export default function CTAContact() {
         }
         .cf-submit:hover .cf-submit-icon { background: rgba(255,255,255,0.2); }
 
-        /* Success */
         .cta-success {
           width: 100%;
           display: flex; flex-direction: column;
@@ -526,14 +487,12 @@ export default function CTAContact() {
         }
         .cta-success-back:hover { opacity: 0.5; }
 
-        /* ── Responsive ── */
         @media (max-width: 1024px) {
           .cta-wrap { grid-template-columns: 1fr; min-height: auto; }
           .cta-left { min-height: 60vh; padding: 3rem 2.5rem; }
           .cta-right { padding: 3.5rem 2.5rem; border-left: none; border-top: 1px solid #ebebeb; }
           .cta-heading { font-size: clamp(2.4rem, 6vw, 4rem); }
         }
-
         @media (max-width: 640px) {
           .cta-left { min-height: 55vh; padding: 2.5rem 1.5rem; }
           .cta-right { padding: 3rem 1.5rem; }
@@ -541,7 +500,6 @@ export default function CTAContact() {
           .cta-stats { gap: 1.2rem; }
           .cta-stat-num { font-size: 1.5rem; }
         }
-
         @media (max-width: 480px) {
           .cta-left, .cta-right { padding-left: 1.25rem; padding-right: 1.25rem; }
           .cta-form-header { flex-direction: column; gap: 0.4rem; }

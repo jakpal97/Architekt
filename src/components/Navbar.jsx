@@ -43,12 +43,7 @@ export default function Navbar() {
         >
             {/* Logo Section */}
             <Link href="/" className="text-xl font-bold tracking-tighter flex items-center gap-2 group">
-                <div className="transition-transform duration-500 group-hover:rotate-12">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M2 20h20v2H2v-2zm2-8h4v6H4v-6zm6-6h4v12h-4V6zm6-4h4v16h-4V2z" />
-                    </svg>
-                </div>
-                <span className="uppercase text-lg">Arcbes</span>
+                <img src="/logo.png" alt="WPM solutions logo" className='w-30 h-20 ' />
             </Link>
 
             {/* Navigation Links */}

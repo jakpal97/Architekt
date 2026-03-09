@@ -1,35 +1,21 @@
 'use client'
 
-const processSteps = [
-	{
-		icon: '❖',
-		title: 'Konsultacja Wstępna',
-		description: 'Analiza kreatywna to proces oceny prac kreatywnych i wymagań projektowych.',
-	},
-	{
-		icon: '☀',
-		title: 'Rozwój Koncepcji',
-		description: 'Szkice projektowe reprezentują starannie dobrane pomysły łączące kreatywny design z funkcjonalnością.',
-	},
-	{
-		icon: '▤',
-		title: 'Planowanie i Układ',
-		description: 'Optymalizacja przepływu i struktury, aby zapewnić efektywne działanie przestrzeni dla Twojego zespołu.',
-	},
-	{
-		icon: '★',
-		title: 'Kontrola Jakości',
-		description: 'Końcowy przegląd materiałów, wykończeń i realizacji, aby zapewnić perfekcję.',
-	},
+const defaultProcessSteps = [
+	{ icon: '❖', title: 'Konsultacja Wstępna', description: 'Analiza kreatywna to proces oceny prac kreatywnych i wymagań projektowych.' },
+	{ icon: '☀', title: 'Rozwój Koncepcji', description: 'Szkice projektowe reprezentują starannie dobrane pomysły łączące kreatywny design z funkcjonalnością.' },
+	{ icon: '▤', title: 'Planowanie i Układ', description: 'Optymalizacja przepływu i struktury, aby zapewnić efektywne działanie przestrzeni dla Twojego zespołu.' },
+	{ icon: '★', title: 'Kontrola Jakości', description: 'Końcowy przegląd materiałów, wykończeń i realizacji, aby zapewnić perfekcję.' },
 ]
 
-const designProcessPoints = [
+const defaultProcessPoints = [
 	'Analiza kreatywna rozpoczyna się od zbadania szerokiego zakresu możliwości.',
 	'Te wzorce mogą informować decyzje o tym, które elementy działają.',
 	'Sesje wspólnego burzenia mózgów i pętle informacji zwrotnej.',
 ]
 
-export default function ServiceDetailContent({ description, descriptionExtra }) {
+export default function ServiceDetailContent({ description, descriptionExtra, processSteps, processPoints }) {
+	const steps = processSteps || defaultProcessSteps
+	const points = processPoints || defaultProcessPoints
 	return (
 		<div className="space-y-16">
 			{/* Description */}
@@ -41,7 +27,7 @@ export default function ServiceDetailContent({ description, descriptionExtra }) 
 
 			{/* Process Icons Grid */}
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-				{processSteps.map((step, index) => (
+				{steps.map((step, index) => (
 					<div key={index} className="process-icon-box">
 						<div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center mb-6 text-2xl">
 							{step.icon}
@@ -69,7 +55,7 @@ export default function ServiceDetailContent({ description, descriptionExtra }) 
 					przedmiot ma swoje miejsce.
 				</p>
 				<ul className="space-y-4">
-					{designProcessPoints.map((point, index) => (
+					{points.map((point, index) => (
 						<li key={index} className="flex items-start gap-4">
 							<span className="w-6 h-6 border-2 border-black rounded-full flex items-center justify-center mt-1 text-[10px]">
 								●

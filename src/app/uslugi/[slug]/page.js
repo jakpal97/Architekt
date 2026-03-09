@@ -12,35 +12,96 @@ import ServiceDetailFooter from '@/components/ServiceDetailFooter'
 
 // Dane usług
 const servicesData = {
-	'commercial-design': {
-		title: 'Projektowanie Komercyjne',
-		heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop',
-		description: `W naszej usłudze Projektowania Komercyjnego wierzymy, że każde miejsce pracy opowiada historię, a my jesteśmy tutaj, aby pomóc Ci ją napisać. Nasi eksperci projektanci ściśle współpracują z Tobą, aby przekształcić Twoje przestrzenie biurowe w spersonalizowane odzwierciedlenia Twojej marki i potrzeb. Niezależnie od tego, czy chcesz stworzyć nowoczesną, minimalistyczną siedzibę, czy ciepłe, współpracujące centrum, zapewniamy dostosowane rozwiązania.`,
-		descriptionExtra: `Specjalizujemy się w maksymalnym wykorzystaniu każdego metra kwadratowego, zapewniając zgodność ze standardami dostępności przy jednoczesnym maksymalizowaniu estetyki.`,
+	'projekty': {
+		title: 'Projekty & Koncepcja',
+		heroImage: '/Obraz1.jpg',
+		description: `Każdy projekt zaczyna się od idei. Tworzymy koncepcje przestrzeni eventowych — od szkicu po fotorealistyczną wizualizację 3D. Zanim wbijemy pierwszy gwóźdź, widzisz dokładnie efekt końcowy.`,
+		descriptionExtra: `Pracujemy metodycznie: zbieramy brief, analizujemy przestrzeń i kontekst marki, a następnie dostarczamy pełną dokumentację projektową gotową do realizacji. Żadnych niespodzianek na budowie.`,
+		processSteps: [
+			{ icon: '❖', title: 'Brief & Analiza', description: 'Dogłębne zrozumienie Twoich potrzeb, marki i przestrzeni, w której będziemy działać.' },
+			{ icon: '☀', title: 'Koncepcja Wizualna', description: 'Szkice i moodboardy prezentujące kierunek projektowy przed przystąpieniem do szczegółów.' },
+			{ icon: '▤', title: 'Wizualizacja 3D', description: 'Fotorealistyczne rendery pozwalające zobaczyć efekt końcowy przed realizacją.' },
+			{ icon: '★', title: 'Dokumentacja', description: 'Kompletna dokumentacja techniczna i materiałowa gotowa do produkcji i montażu.' },
+		],
+		processPoints: [
+			'Każdy projekt jest unikalny — nie korzystamy z szablonów.',
+			'Wizualizacje 3D eliminują ryzyko rozbieżności między oczekiwaniami a efektem.',
+			'Ścisła współpraca z klientem na każdym etapie projektowania.',
+		],
 	},
-	'architectural-design': {
-		title: 'Projektowanie Architektoniczne',
-		heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
-		description: `Nasza usługa Projektowania Architektonicznego przekształca Twoją wizję w rzeczywistość poprzez innowacyjne rozwiązania strukturalne. Łączymy ekspresję artystyczną z precyzją inżynierską, aby tworzyć budynki, które inspirują i przetrwają.`,
-		descriptionExtra: `Od koncepcji do realizacji, prowadzimy Cię przez każdą fazę podróży architektonicznej.`,
+	'outdoor-events': {
+		title: 'Kampanie Outdoor & Produkcja Eventowa',
+		heroImage: '/Obraz2.jpg',
+		description: `Budujemy przestrzenie, które zatrzymują ludzi w miejscu. Stoiska targowe, strefy aktywacji marki, zabudowy eventowe — projektowane z myślą o Twoim kliencie i jego emocjach.`,
+		descriptionExtra: `Łączymy kreatywny design z wiedzą o zachowaniach konsumentów. Każda przestrzeń eventowa, którą tworzymy, ma cel: angażować, zapraszać i budować relację między marką a odbiorcą.`,
+		processSteps: [
+			{ icon: '❖', title: 'Analiza Marki', description: 'Dogłębne zrozumienie DNA marki, grupy docelowej i celów kampanii.' },
+			{ icon: '☀', title: 'Projekt Strefy', description: 'Opracowanie układu, ścieżki użytkownika i kluczowych punktów aktywacji.' },
+			{ icon: '▤', title: 'Produkcja', description: 'Realizacja zabudowy: konstrukcje, druk, oświetlenie i elementy interaktywne.' },
+			{ icon: '★', title: 'Montaż & Nadzór', description: 'Profesjonalny montaż na miejscu eventu z nadzorem naszego zespołu.' },
+		],
+		processPoints: [
+			'Doświadczenie w realizacjach dla globalnych marek na polskim rynku.',
+			'Pełna obsługa od koncepcji po demontaż — jeden punkt kontaktu.',
+			'Optymalizacja kosztów bez kompromisów w jakości wykonania.',
+		],
 	},
-	'interior-design': {
-		title: 'Projektowanie Wnętrz',
-		heroImage: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop',
-		description: `Nasza usługa Projektowania Wnętrz skupia się na tworzeniu przestrzeni, które odzwierciedlają Twoją osobowość, jednocześnie maksymalizując funkcjonalność. Starannie dobieramy kolory, faktury i wyposażenie, aby tworzyć środowiska, które są zarówno piękne, jak i przyjazne do życia.`,
-		descriptionExtra: `Każdy szczegół ma znaczenie - od oświetlenia po układ, zapewniamy, że Twoja przestrzeń działa idealnie dla Ciebie.`,
+	'druk-wielkoformatowy': {
+		title: 'Druk Wielkoformatowy',
+		heroImage: '/Obraz3.jpg',
+		description: `Własny park maszynowy pozwala nam kontrolować każdy etap produkcji. Wielkoformatowy druk, cięcie, wyklejanie i montaż — wszystko pod jednym dachem, bez pośredników.`,
+		descriptionExtra: `Drukujemy na wszystkich popularnych podłożach: siatki mesh, folie polimerowe, banery, tapety, podłogi, oklejenia pojazdów. Wysoka rozdzielczość i kalibracja kolorów gwarantują spójność z identyfikacją wizualną marki.`,
+		processSteps: [
+			{ icon: '❖', title: 'Przygotowanie Plików', description: 'Weryfikacja i przygotowanie materiałów do druku — poprawność kolorów i rozdzielczości.' },
+			{ icon: '☀', title: 'Proof & Akceptacja', description: 'Wydruk próbny i akceptacja kolorystyczna przed produkcją pełnowymiarową.' },
+			{ icon: '▤', title: 'Produkcja', description: 'Druk na maszynach wielkoformatowych z kontrolą jakości na każdym arkuszu.' },
+			{ icon: '★', title: 'Wykończenie & Dostawa', description: 'Laminowanie, cięcie, zgrzewanie oraz dostawa lub montaż na miejscu.' },
+		],
+		processPoints: [
+			'Własny park maszynowy — brak opóźnień wynikających z outsourcingu.',
+			'Precyzyjna kalibracja kolorów zgodna z Pantone i CMYK.',
+			'Ekspresowe terminy realizacji nawet dla dużych formatów.',
+		],
 	},
-	'home-decoration': {
-		title: 'Dekoracja Wnętrz',
-		heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop',
-		description: `Nasza usługa Dekoracji Wnętrz wnosi ciepło i charakter do Twoich przestrzeni życiowych. Integrujemy elementy naturalne z przemyślanym designem, aby tworzyć środowiska, które są osobiste, organiczne i z natury spokojne.`,
-		descriptionExtra: `Od doboru mebli po konsultację kolorystyczną, pomagamy Ci stworzyć dom, który naprawdę czuje się jak Twój.`,
+	'produkcja-nosnikow-i-kostrukcji': {
+		title: 'Produkcja Nośników & Konstrukcji',
+		heroImage: '/Obraz4.jpg',
+		description: `Specjalizujemy się w budowie konstrukcji aluminiowych i ekspozytorów na wymiar. Jeśli nie istnieje gotowe rozwiązanie — projektujemy i produkujemy je od zera.`,
+		descriptionExtra: `Nasze konstrukcje są lekkie, trwałe i wielokrotnego użytku. Projektujemy je tak, aby montaż był szybki i możliwy bez specjalistycznych narzędzi. Ekspozytory, totemy, stojaki, systemy modułowe — każdy element dopasowany do Twoich potrzeb.`,
+		processSteps: [
+			{ icon: '❖', title: 'Projekt Techniczny', description: 'Opracowanie rysunków technicznych z uwzględnieniem wymiarów, wagi i wytrzymałości.' },
+			{ icon: '☀', title: 'Dobór Materiałów', description: 'Aluminium, stal, MDF, plexi, PVC — dobieramy materiały do funkcji i budżetu.' },
+			{ icon: '▤', title: 'Produkcja CNC', description: 'Precyzyjna obróbka CNC zapewniająca powtarzalność i dokładność każdego elementu.' },
+			{ icon: '★', title: 'Testy & Odbiór', description: 'Kontrola jakości, test wytrzymałościowy i odbiór przed wysyłką do klienta.' },
+		],
+		processPoints: [
+			'Konstrukcje projektowane pod wielokrotny montaż i demontaż.',
+			'Możliwość produkcji seryjnej lub jednostkowej bez dopłat.',
+			'Pełna dokumentacja techniczna ułatwiająca samodzielny montaż.',
+		],
+	},
+	'logistyka-i-montaz': {
+		title: 'Logistyka & Montaż',
+		heroImage: '/Obraz6.jpg',
+		description: `Dostarczamy, montujemy i nadzorujemy. Nasz zespół obsługuje cały proces na miejscu — od załadunku po demontaż po evencie. Ty skupiasz się na gościach, my na reszcie.`,
+		descriptionExtra: `Działamy w całej Polsce i za granicą. Mamy własne środki transportu i doświadczony zespół montażystów. Terminowość i porządek po zakończeniu pracy to nasze standardy, nie wyjątki.`,
+		processSteps: [
+			{ icon: '❖', title: 'Planowanie Trasy', description: 'Optymalizacja logistyki transportu — czas dostawy, kolejność załadunku, harmonogram.' },
+			{ icon: '☀', title: 'Załadunek & Transport', description: 'Profesjonalne zabezpieczenie i transport materiałów własnymi pojazdami.' },
+			{ icon: '▤', title: 'Montaż na Miejscu', description: 'Doświadczony zespół montażowy realizujący projekt zgodnie z dokumentacją.' },
+			{ icon: '★', title: 'Demontaż & Zwrot', description: 'Sprawny demontaż po evencie, segregacja materiałów i transport zwrotny.' },
+		],
+		processPoints: [
+			'Własna flota pojazdów — niezależność od firm kurierskich.',
+			'Ekipy montażowe dostępne 7 dni w tygodniu, również w nocy.',
+			'Kompleksowa obsługa: nie musisz koordynować wielu podwykonawców.',
+		],
 	},
 }
 
 export default function ServiceDetail({ params }) {
 	const { slug } = use(params)
-	const service = servicesData[slug] || servicesData['commercial-design']
+	const service = servicesData[slug] || servicesData['projekty']
 
 	useServiceDetailAnimations()
 
@@ -58,7 +119,12 @@ export default function ServiceDetail({ params }) {
 			<section className="pb-32 px-6 md:px-12">
 				<div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
 					<div className="lg:col-span-8">
-						<ServiceDetailContent description={service.description} descriptionExtra={service.descriptionExtra} />
+						<ServiceDetailContent
+						description={service.description}
+						descriptionExtra={service.descriptionExtra}
+						processSteps={service.processSteps}
+						processPoints={service.processPoints}
+					/>
 					</div>
 					<div className="lg:col-span-4 relative">
 						<ServiceDetailSidebar currentSlug={slug} />

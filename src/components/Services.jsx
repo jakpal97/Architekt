@@ -5,10 +5,10 @@ import { useRef, useEffect, useState } from 'react'
 
 const SERVICES = [
   { id: '01', title: 'Projekty', sub: 'Koncepcja & BIM', desc: 'Integracja naturalnego środowiska z architekturą poprzez planowanie przestrzeni.', img: '/Obraz6.jpg' },
-  { id: '02', title: 'Outdoor', sub: 'Kampanie & Branding', desc: 'Projektowanie funkcjonalnych, estetycznie przyjemnych przestrzeni zewnętrznych.', img: '/Obraz7.jpg' },
-  { id: '03', title: 'Druk', sub: 'Wielki Format', desc: 'Od siatek mesh po folię polimerową — perfekcyjna realizacja w każdej skali.', img: '/Obraz6.jpg' },
-  { id: '04', title: 'Produkcja', sub: 'Nośniki & Eventy', desc: 'Niestandardowe nośniki reklamowe i konstrukcje eventowe szyte na miarę.', img: '/Obraz8.jpg' },
-  { id: '05', title: 'Logistyka', sub: 'Montaż & Transport', desc: 'Pełna obsługa logistyczna — montaż i demontaż na miejscu eventu.', img: '/Obraz7.jpg' },
+  { id: '02', title: 'Kampanie Outdoor', sub: 'Kampanie & Branding', desc: 'Projektowanie funkcjonalnych, estetycznie przyjemnych przestrzeni zewnętrznych.', img: '/Obraz7.jpg' },
+  { id: '03', title: 'Druk Wielkoformatowy', sub: 'Wielki Format', desc: 'Od siatek mesh po folię polimerową — perfekcyjna realizacja w każdej skali.', img: '/Obraz6.jpg' },
+  { id: '04', title: 'Produkcja nośników i konstrukcji niestandardowych', sub: 'Nośniki & Eventy', desc: 'Niestandardowe nośniki reklamowe i konstrukcje eventowe szyte na miarę.', img: '/Obraz8.jpg' },
+  { id: '05', title: 'Logistyka i Montaż', sub: 'Montaż & Transport', desc: 'Pełna obsługa logistyczna — montaż i demontaż na miejscu eventu.', img: '/Obraz7.jpg' },
 ]
 
 export default function ServiceCube() {
@@ -133,7 +133,7 @@ export default function ServiceCube() {
         .face-desc { font-size: 1.1rem; color: #555; line-height: 1.6; max-width: 380px; margin-bottom: 2.5rem; }
         .face-link { text-decoration: none; color: #000; font-weight: 600; border-bottom: 1px solid #000; padding-bottom: 5px; }
 
-        .face-img-wrap { width: 100%; height: 400px; overflow: hidden; background: #f9f9f9; }
+        .face-img-wrap { width: 100%; height: 400px; overflow: hidden; background: #f9f9f9; border-radius: 0.75rem; }
         .face-img { width: 100%; height: 100%; object-fit: cover; }
 
         .cube-dots {

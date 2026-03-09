@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-	title: 'Arcbes - Studio Architektoniczne',
-	description: 'Nowoczesne studio architektoniczne przekształcające śmiałe wizje w rzeczywistość od 2010 roku.',
+	title: 'WPM Solutions',
+	description: 'Strefy dla każdego ',
 }
 
 export default function RootLayout({ children }) {
