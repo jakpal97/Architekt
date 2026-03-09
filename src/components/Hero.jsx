@@ -38,7 +38,7 @@ export default function Hero() {
   id="hero-video-wrapper"
 >
   <video
-    src="/Generowanie_filmu_z_obrazu.mp4"
+    src="/vid3.mp4"
     poster="/levis.png"
     autoPlay
     loop
