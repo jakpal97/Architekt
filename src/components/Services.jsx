@@ -49,7 +49,7 @@ export default function ServiceCube() {
               <div 
                 key={s.id} 
                 className={`cube-face face-${i}`}
-                style={{ transform: `rotateX(-${i * 90}deg) translateZ(250px)` }}
+                style={{ transform: `rotateX(-${i * 90}deg) translateZ(var(--tz, 230px))` }}
               >
                 <div className="face-content">
                   <div className="face-text">
@@ -82,11 +82,13 @@ export default function ServiceCube() {
           position: sticky; top: 0; height: 100vh; 
           display: flex; flex-direction: column; align-items: center; justify-content: center;
           overflow: hidden;
+          padding-top: 10rem;
         }
 
-        .cube-header { position: absolute; top: 6rem; left: 4rem; z-index: 10; }
-        .cube-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; color: #bbb; margin-bottom: 1rem; }
-        .cube-h2 { font-size: 4rem; font-weight: 500; letter-spacing: -0.04em; line-height: 0.9; }
+        /* Nagłówek — zostawiony nad sceną, nie nachodzi na treść */
+        .cube-header { position: absolute; top: 2.5rem; left: 4rem; z-index: 10; }
+        .cube-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; color: #bbb; margin-bottom: 0.5rem; }
+        .cube-h2 { font-size: 2.8rem; font-weight: 500; letter-spacing: -0.04em; line-height: 0.9; }
         .cube-h2 em { font-style: italic; font-weight: 300; color: #ccc; }
 
         /* SCENA 3D */
@@ -94,7 +96,7 @@ export default function ServiceCube() {
           perspective: 1500px;
           width: 100%;
           max-width: 1200px;
-          height: 500px;
+          height: 460px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -128,25 +130,62 @@ export default function ServiceCube() {
         }
 
         .face-num { font-size: 0.8rem; font-weight: 700; color: #eee; display: block; margin-bottom: 1rem; }
-        .face-title { font-size: 5rem; font-weight: 500; letter-spacing: -0.05em; line-height: 1; margin-bottom: 1rem; }
+        .face-title { font-size: 4.2rem; font-weight: 500; letter-spacing: -0.05em; line-height: 1; margin-bottom: 1rem; }
         .face-sub { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 2rem; }
         .face-desc { font-size: 1.1rem; color: #555; line-height: 1.6; max-width: 380px; margin-bottom: 2.5rem; }
         .face-link { text-decoration: none; color: #000; font-weight: 600; border-bottom: 1px solid #000; padding-bottom: 5px; }
 
-        .face-img-wrap { width: 100%; height: 400px; overflow: hidden; background: #f9f9f9; border-radius: 0.75rem; }
+        .face-img-wrap { width: 100%; height: 360px; overflow: hidden; background: #f9f9f9; border-radius: 0.75rem; }
         .face-img { width: 100%; height: 100%; object-fit: cover; }
 
         .cube-dots {
-          position: absolute; right: 4rem; top: 50%; transform: translateY(-50%);
+          position: absolute; right: 2rem; top: 50%; transform: translateY(-50%);
           display: flex; flex-direction: column; gap: 1rem;
         }
         .cube-dot { width: 4px; height: 4px; background: #eee; border-radius: 50%; transition: all 0.4s ease; }
         .cube-dot.active { background: #000; transform: scale(2.5); }
 
+        /* Laptop / duży tablet (max 1024px) */
         @media (max-width: 1024px) {
-          .face-content { grid-template-columns: 1fr; gap: 2rem; }
+          .cube-main { --tz: 210px; }
+          .cube-sticky { padding-top: 9rem; }
+          .cube-header { top: 2rem; left: 2.5rem; }
+          .cube-h2 { font-size: 2.2rem; }
+          .cube-scene { height: 420px; }
+          .face-content { grid-template-columns: 1fr; gap: 1.5rem; }
           .face-img-wrap { display: none; }
           .face-title { font-size: 3rem; }
+          .cube-dots { right: 1.5rem; }
+        }
+
+        /* Tablet (max 768px) */
+        @media (max-width: 768px) {
+          .cube-main { --tz: 190px; }
+          .cube-sticky { padding-top: 8rem; }
+          .cube-header { top: 1.5rem; left: 1.5rem; }
+          .cube-h2 { font-size: 1.8rem; }
+          .cube-eyebrow { margin-bottom: 0.3rem; }
+          .cube-scene { height: 380px; perspective: 1000px; }
+          .cube-face { padding: 1.5rem; }
+          .face-title { font-size: 2.2rem; }
+          .face-sub { font-size: 0.85rem; margin-bottom: 1rem; }
+          .face-desc { font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 100%; }
+          .cube-dots { right: 1rem; gap: 0.8rem; }
+        }
+
+        /* Mobile (max 480px) */
+        @media (max-width: 480px) {
+          .cube-main { --tz: 170px; }
+          .cube-sticky { padding-top: 7rem; }
+          .cube-header { top: 1rem; left: 1rem; }
+          .cube-h2 { font-size: 1.5rem; }
+          .cube-scene { height: 340px; perspective: 800px; }
+          .cube-face { padding: 1rem; }
+          .face-title { font-size: 1.7rem; letter-spacing: -0.03em; }
+          .face-sub { font-size: 0.75rem; margin-bottom: 0.75rem; }
+          .face-desc { font-size: 0.875rem; margin-bottom: 1.25rem; }
+          .face-link { font-size: 0.875rem; }
+          .cube-dots { right: 0.5rem; gap: 0.6rem; }
         }
       `}</style>
     </section>

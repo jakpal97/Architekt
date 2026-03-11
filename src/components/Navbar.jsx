@@ -43,7 +43,7 @@ export default function Navbar() {
         >
             {/* Logo Section */}
             <Link href="/" className="text-xl font-bold tracking-tighter flex items-center gap-2 group">
-                <img src="/logo.png" alt="WPM solutions logo" className='w-30 h-20 ' />
+                <img src="/logo.png" alt="WPM solutions logo" className='w-20 h-10 ' />
             </Link>
 
             {/* Navigation Links */}
