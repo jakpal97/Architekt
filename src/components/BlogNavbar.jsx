@@ -15,9 +15,9 @@ export default function BlogNavbar() {
 				<Link href="/" className="hover:opacity-60 transition">
 					Strona Główna
 				</Link>
-				<a href="#" className="hover:opacity-60 transition">
+				<Link href="/o-nas" className="hover:opacity-60 transition">
 					O Nas
-				</a>
+				</Link>
 				<Link href="/uslugi" className="hover:opacity-60 transition">
 					Usługi
 				</Link>

@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 export default function About() {
 	return (
 		<section className="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-white" id="about">
@@ -17,9 +19,9 @@ export default function About() {
 						Zajmujemy się wydrukami wielkoformatowymi – od siatek mesh po folię polimerową poprzez nadruk
 						na materiałach płaskich.
 					</p>
-					<button className="mt-8 border border-black rounded-full px-8 py-3 text-sm hover:bg-black hover:text-white transition flex items-center gap-2 group">
+					<Link href="/o-nas" className="mt-8 inline-flex border border-black rounded-full px-8 py-3 text-sm hover:bg-black hover:text-white transition items-center gap-2 group">
 						Dowiedz Się Więcej <span className="group-hover:translate-x-1 transition">→</span>
-					</button>
+					</Link>
 				</div>
 
 				<div className="flex flex-col gap-4">

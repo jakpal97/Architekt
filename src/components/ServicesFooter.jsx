@@ -49,9 +49,9 @@ export default function ServicesFooter() {
 								</Link>
 							</li>
 							<li>
-								<a href="#" className="hover:text-black">
-									O Nas
-								</a>
+						<Link href="/o-nas" className="hover:text-black">
+								O Nas
+							</Link>
 							</li>
 							<li>
 								<Link href="/uslugi" className="hover:text-black">

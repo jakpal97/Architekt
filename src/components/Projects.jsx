@@ -46,7 +46,8 @@ export default function Projects() {
 							Wybrane<br />realizacje
 						</h3>
 					</motion.div>
-					<motion.button
+					<motion.a
+						href="/portfolio"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						transition={{ duration: 0.6, delay: 0.3 }}
@@ -54,7 +55,7 @@ export default function Projects() {
 						className="hidden md:flex items-center gap-2 border border-black rounded-full px-6 py-3 text-sm hover:bg-black hover:text-white transition"
 					>
 						Wszystkie projekty →
-					</motion.button>
+					</motion.a>
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">

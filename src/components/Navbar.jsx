@@ -52,7 +52,7 @@ export default function Navbar() {
                     Strona Główna
                     <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-black transition-transform duration-500 origin-right scale-x-100 group-hover:scale-x-0 group-hover:origin-left"></span>
                 </Link>
-                {['O Nas', 'Usługi', 'Blog'].map((item) => (
+                {['O Nas', 'Usługi', 'Portfolio', 'Blog'].map((item) => (
                     <Link 
                         key={item} 
                         href={`/${item.toLowerCase().replace(' ', '-')}`} 
