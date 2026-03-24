@@ -1,4 +1,4 @@
-import { client } from '../client'
+import { sanityFetch } from '../client'
 
 const serviceFields = `
   _id,
@@ -26,7 +26,7 @@ const projectFields = `
 `
 
 export async function getHomePage() {
-  return client.fetch(`
+  return sanityFetch(`
     *[_type == "homePage" && _id == "homePage"][0] {
       heroTitle1,
       heroTitle2,

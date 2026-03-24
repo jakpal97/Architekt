@@ -1,4 +1,4 @@
-import { client } from '../client'
+import { sanityFetch } from '../client'
 
 const serviceFields = `
   _id,
@@ -21,16 +21,16 @@ const serviceFields = `
 `
 
 export async function getAllServices() {
-  return client.fetch(`*[_type == "service"] | order(order asc) { ${serviceFields} }`)
+  return sanityFetch(`*[_type == "service"] | order(order asc) { ${serviceFields} }`)
 }
 
 export async function getServiceBySlug(slug) {
-  return client.fetch(
+  return sanityFetch(
     `*[_type == "service" && slug.current == $slug][0] { ${serviceFields} }`,
     { slug }
   )
 }
 
 export async function getServicesSlugs() {
-  return client.fetch(`*[_type == "service"]{ "slug": slug.current }`)
+  return sanityFetch(`*[_type == "service"]{ "slug": slug.current }`)
 }

@@ -1,7 +1,7 @@
-import { client } from '../client'
+import { sanityFetch } from '../client'
 
 export async function getSiteSettings() {
-  return client.fetch(`
+  return sanityFetch(`
     *[_type == "siteSettings" && _id == "siteSettings"][0] {
       siteName,
       "logoUrl": logo.asset->url,
@@ -16,7 +16,7 @@ export async function getSiteSettings() {
 }
 
 export async function getCooperationSteps() {
-  return client.fetch(`
+  return sanityFetch(`
     *[_type == "cooperationStep"] | order(order asc) {
       order,
       title,
@@ -27,7 +27,7 @@ export async function getCooperationSteps() {
 }
 
 export async function getLogoPartners() {
-  return client.fetch(`
+  return sanityFetch(`
     *[_type == "logoPartner"] | order(order asc) {
       name,
       category,

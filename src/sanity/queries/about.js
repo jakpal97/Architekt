@@ -1,7 +1,7 @@
-import { client } from '../client'
+import { sanityFetch } from '../client'
 
 export async function getAboutPage() {
-  return client.fetch(`
+  return sanityFetch(`
     *[_type == "aboutPage" && _id == "aboutPage"][0] {
       headerTitle,
       story[] {

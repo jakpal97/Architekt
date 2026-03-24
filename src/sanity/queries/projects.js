@@ -1,4 +1,4 @@
-import { client } from '../client'
+import { sanityFetch } from '../client'
 
 const projectFields = `
   _id,
@@ -16,11 +16,11 @@ const projectFields = `
 `
 
 export async function getFeaturedProjects() {
-  return client.fetch(
+  return sanityFetch(
     `*[_type == "project" && featured == true] | order(order asc) { ${projectFields} }`
   )
 }
 
 export async function getAllProjects() {
-  return client.fetch(`*[_type == "project"] | order(order asc) { ${projectFields} }`)
+  return sanityFetch(`*[_type == "project"] | order(order asc) { ${projectFields} }`)
 }
