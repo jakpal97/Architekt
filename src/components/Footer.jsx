@@ -1,8 +1,19 @@
 'use client'
 
 import Link from 'next/link'
+import { useSettings } from '@/components/SettingsProvider'
 
-export default function Footer() {
+export default function Footer({ settings: settingsProp }) {
+	const contextSettings = useSettings()
+	const settings = settingsProp || contextSettings
+	const siteName = settings?.siteName || 'WPM Solutions'
+	const email = settings?.email || 'hello@wpmsolutions.pl'
+	const phone = settings?.phone || '+48 000 000 000'
+	const address = settings?.address || 'ul. Przykładowa 123, Warszawa'
+	const copyright = settings?.copyright || `Copyright © ${siteName}`
+	const footerDesc = settings?.footerDescription || 'Jesteśmy zdumni z naszych usług produkcji eventów, które spełniają Twoje potrzeby.'
+	const socialLinks = settings?.socialLinks || []
+
 	return (
 		<footer className="bg-white pt-24 pb-8 px-6 md:px-12 border-t border-gray-100" id="main-footer">
 			<div className="max-w-7xl mx-auto">
@@ -12,27 +23,29 @@ export default function Footer() {
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
 								<path d="M2 20h20v2H2v-2zm2-8h4v6H4v-6zm6-6h4v12h-4V6zm6-4h4v16h-4V2z" />
 							</svg>
-							WPM Solutions
+							{siteName}
 						</div>
 						<p className="text-gray-500 text-sm leading-relaxed">
-							Jesteśmy zdumni z naszych usług produkcji eventów, które spełniają Twoje potrzeby.
+							{footerDesc}
 						</p>
 						<div className="flex gap-4">
-							<a
-								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
-								IG
-							</a>
-							<a
-								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
-								TW
-							</a>
-							<a
-								href="#"
-								className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">
-								FB
-							</a>
+							{socialLinks.length > 0 ? (
+								socialLinks.map((s) => (
+									<a
+										key={s.platform}
+										href={s.url || '#'}
+										className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs"
+									>
+										{s.platform}
+									</a>
+								))
+							) : (
+								<>
+									<a href="#" className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">IG</a>
+									<a href="#" className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">TW</a>
+									<a href="#" className="w-10 h-10 border rounded-full flex items-center justify-center hover:bg-black hover:text-white transition text-xs">FB</a>
+								</>
+							)}
 						</div>
 					</div>
 
@@ -96,13 +109,9 @@ export default function Footer() {
 					<div>
 						<h4 className="font-bold mb-6">Adres</h4>
 						<ul className="space-y-4 text-gray-600 text-sm">
-							<li>info@arcbes.com</li>
-							<li>+48 555 345 678</li>
-							<li>
-								ul. Przykładowa 123,
-								<br />
-								Warszawa, 00-000
-							</li>
+							<li>{email}</li>
+							<li>{phone}</li>
+							<li style={{ whiteSpace: 'pre-line' }}>{address}</li>
 						</ul>
 					</div>
 				</div>
@@ -130,7 +139,7 @@ export default function Footer() {
 				</div>
 
 				<div className="flex flex-col md:flex-row justify-between text-xs text-gray-500 py-4">
-					<p>Copyright © Arcbes</p>
+					<p>{copyright}</p>
 					<div className="flex gap-8">
 						<p>Zaprojektowane przez Brandbes</p>
 						<p>Napędzane przez Next.js</p>

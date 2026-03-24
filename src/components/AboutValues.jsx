@@ -1,14 +1,15 @@
 'use client'
 import { motion } from 'framer-motion'
 
-const values = [
-    { number: '01', title: 'Jakość bez kompromisów', desc: 'Każdy projekt realizujemy z najwyższą precyzją. Własny park maszynowy pozwala nam kontrolować jakość na każdym etapie — od projektu po gotową realizację.' },
-    { number: '02', title: 'Kompleksowa obsługa', desc: 'Od projektu koncepcyjnego po demontaż po evencie. Jesteśmy z Tobą na każdym kroku — bez pośredników, bez kompromisów.' },
-    { number: '03', title: 'Terminowość', desc: 'Dotrzymujemy terminów — nawet tych najtrudniejszych. Wiemy, że w branży eventowej czas to kluczowy zasób.' },
-    { number: '04', title: 'Partnerskie podejście', desc: 'Traktujemy każdego klienta jako partnera. Słuchamy, doradzamy i wspólnie tworzymy rozwiązania, które realizują Twoje cele.' },
+const defaultValues = [
+    { index: '01', title: 'Jakość bez kompromisów', description: 'Każdy projekt realizujemy z najwyższą precyzją. Własny park maszynowy pozwala nam kontrolować jakość na każdym etapie — od projektu po gotową realizację.' },
+    { index: '02', title: 'Kompleksowa obsługa', description: 'Od projektu koncepcyjnego po demontaż po evencie. Jesteśmy z Tobą na każdym kroku — bez pośredników, bez kompromisów.' },
+    { index: '03', title: 'Terminowość', description: 'Dotrzymujemy terminów — nawet tych najtrudniejszych. Wiemy, że w branży eventowej czas to kluczowy zasób.' },
+    { index: '04', title: 'Partnerskie podejście', description: 'Traktujemy każdego klienta jako partnera. Słuchamy, doradzamy i wspólnie tworzymy rozwiązania, które realizują Twoje cele.' },
 ]
 
-export default function AboutValues() {
+export default function AboutValues({ values }) {
+    const valueList = (values && values.length > 0) ? values : defaultValues
     return (
         <section className="py-40 px-6 md:px-12 bg-white" id="about-values">
             <div className="max-w-7xl mx-auto">
@@ -26,9 +27,9 @@ export default function AboutValues() {
 
                 {/* Alternatywny układ listowy - luksusowy i przejrzysty */}
                 <div className="space-y-0">
-                    {values.map((value, i) => (
+                    {valueList.map((value, i) => (
                         <motion.div
-                            key={value.number}
+                            key={value.index || value.number || i}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: i * 0.1 }}
@@ -38,7 +39,7 @@ export default function AboutValues() {
                             {/* Numeracja jako subtelny detal */}
                             <div className="lg:col-span-2 mb-4 lg:mb-0">
                                 <span className="text-sm font-light italic text-stone-300 group-hover:text-black transition-colors duration-500">
-                                    ({value.number})
+                                    ({value.index || value.number})
                                 </span>
                             </div>
 
@@ -52,7 +53,7 @@ export default function AboutValues() {
                             {/* Opis - Lekki, szeroki interlinia */}
                             <div className="lg:col-span-5">
                                 <p className="text-stone-500 text-lg font-light leading-relaxed max-w-md group-hover:text-black transition-colors duration-500">
-                                    {value.desc}
+                                    {value.description || value.desc}
                                 </p>
                             </div>
 

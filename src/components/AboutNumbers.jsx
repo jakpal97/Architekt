@@ -1,14 +1,15 @@
 'use client'
 import { motion } from 'framer-motion'
 
-const stats = [
-    { number: '340+', label: 'Realizacji', desc: "Dla marek takich jak Porsche, L'Oréal, Disney+" },
-    { number: '12', label: 'Lat doświadczenia', desc: 'Doświadczenie zdobyte na rynkach w Polsce i Europie' },
-    { number: '48h', label: 'Czas reakcji', desc: 'Błyskawiczne wsparcie i przystąpienie do działania' },
-    { number: '200+', label: 'Klientów', desc: 'Zaufali nam liderzy branży z całej Polski' },
+const defaultStats = [
+    { number: '340+', label: 'Realizacji', description: "Dla marek takich jak Porsche, L'Oréal, Disney+" },
+    { number: '12', label: 'Lat doświadczenia', description: 'Doświadczenie zdobyte na rynkach w Polsce i Europie' },
+    { number: '48h', label: 'Czas reakcji', description: 'Błyskawiczne wsparcie i przystąpienie do działania' },
+    { number: '200+', label: 'Klientów', description: 'Zaufali nam liderzy branży z całej Polski' },
 ]
 
-export default function AboutNumbers() {
+export default function AboutNumbers({ stats }) {
+    const statList = (stats && stats.length > 0) ? stats : defaultStats
     return (
         <section className="bg-black py-32 px-6 md:px-12 border-y border-stone-900" id="about-numbers">
             <div className="max-w-7xl mx-auto">
@@ -27,7 +28,7 @@ export default function AboutNumbers() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
-                    {stats.map((stat, i) => (
+                    {statList.map((stat, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +52,7 @@ export default function AboutNumbers() {
                             
                             {/* Opis: Stone-400 zamiast 600 - znacznie czytelniejszy na czarnym tle */}
                             <p className="text-sm text-stone-400 leading-relaxed font-light max-w-[220px]">
-                                {stat.desc}
+                                {stat.description || stat.desc}
                             </p>
                         </motion.div>
                     ))}

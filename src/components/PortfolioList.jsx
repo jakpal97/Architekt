@@ -2,122 +2,21 @@
 
 import PortfolioCarousel from '@/components/PortfolioCarousel'
 
-const projects = [
-	{
-		number: '01',
-		brand: 'Johnnie Walker',
-		name: 'Strefa Festiwalowa Blonde',
-		location: 'Snowfest · Szczyrk',
-		year: '2024',
-		category: 'Produkcja Eventowa',
-		description:
-			'Kompleksowa zabudowa strefy festiwalowej dla marki Johnnie Walker Blonde w ramach Snowfest Szczyrk. Projekt obejmował projekt koncepcyjny, produkcję konstrukcji aluminiowych, zadruk wielkoformatowy oraz pełny montaż i demontaż na miejscu. Strefa przyciągnęła ponad 8 000 uczestników przez trzy dni festiwalu.',
-		tags: ['Konstrukcja ALU', 'Druk Wielkoformatowy', 'Montaż', 'Branding'],
-		images: ['/Obraz2.jpg', '/Obraz7.jpg', '/Obraz8.jpg'],
-		reverse: false,
-	},
-	{
-		number: '02',
-		brand: "Levi's",
-		name: 'Strefa Kontenerowa',
-		location: 'Warszawa',
-		year: '2024',
-		category: 'Aktywacja Marki',
-		description:
-			'Pop-up strefa kontenerowa dla marki Levi\'s w centrum Warszawy. Zaprojektowaliśmy i zbudowaliśmy mobilną przestrzeń handlową z elementami interaktywnymi, dedykowaną brandingiem zewnętrznym oraz oświetleniem ekspozycyjnym. Projekt był częścią ogólnopolskiej kampanii promocyjnej nowej kolekcji.',
-		tags: ['Kontenery', 'Pop-up Store', 'Branding', 'Ekspozytory'],
-		images: ['/Obraz3.jpg', '/Obraz2.jpg', '/Obraz9.jpg'],
-		reverse: true,
-	},
-	{
-		number: '03',
-		brand: 'Sephora',
-		name: 'Beauty Bus',
-		location: '7 lokalizacji · Cała Polska',
-		year: '2023',
-		category: 'Kampania Ogólnopolska',
-		description:
-			'Beauty Bus to mobilna strefa beauty marki Sephora, która odwiedziła 7 miast w Polsce. Projekt wymagał stworzenia kompletnej identyfikacji wizualnej autobusa, stref ekspozycyjnych wewnątrz i na zewnątrz oraz modułowego systemu wystawienniczego. Koordynowaliśmy całą logistykę trasy.',
-		tags: ['Vehicle Wrap', 'Ekspozytory', 'Logistyka', 'Identyfikacja'],
-		images: ['/Obraz4.jpg', '/Obraz1.jpg', '/Obraz6.jpg'],
-		reverse: false,
-	},
-	{
-		number: '04',
-		brand: 'Storytel',
-		name: 'Targi Książki',
-		location: 'Kraków EXPO',
-		year: '2023',
-		category: 'Stoisko Targowe',
-		description:
-			'Stoisko targowe dla Storytel na Krakowskich Targach Książki. Koncepcja zakładała stworzenie przestrzeni zachęcającej do odkrywania audiobooków — z fotelami odsłuchowymi, interaktywnymi displejami i wyciszającą akustyką. Stoisko zdobyło nagrodę za najlepszy design na targach.',
-		tags: ['Stoisko Targowe', 'Design Wnętrza', 'Akustyka', 'Interaktywność'],
-		images: ['/Obraz5.png', '/Obraz3.jpg', '/Obraz7.jpg'],
-		reverse: true,
-	},
-	{
-		number: '05',
-		brand: "L'Oréal Paris",
-		name: 'Strefa Kontenerowa',
-		location: 'Opener · Gdynia',
-		year: '2023',
-		category: 'Produkcja Festiwalowa',
-		description:
-			'Przestrzeń beauty dla L\'Oréal Paris na festiwalu Opener w Gdyni. Dwupiętrowy kontener ekspozycyjny z salonem makijażu, strefą foto i interaktywną aplikacją AR. Projekt obejmował pełną realizację — od wizualizacji 3D po demontaż po festiwalu.',
-		tags: ['Kontenery 2-piętrowe', 'Strefa Foto', 'AR', 'Beauty'],
-		images: ['/Obraz6.jpg', '/Obraz4.jpg', '/Obraz8.jpg'],
-		reverse: false,
-	},
-	{
-		number: '06',
-		brand: 'Porsche',
-		name: 'Kontenery Ekspozycyjne',
-		location: 'Warszawa · 2 lokalizacje',
-		year: '2022',
-		category: 'Ekspozycja Premium',
-		description:
-			'Ekskluzywne kontenery ekspozycyjne dla marki Porsche w dwóch lokalizacjach w Warszawie. Projekt wymagał najwyższych standardów wykończenia — lakiery premium, aluminium szczotkowane, podłogi epoksydowe. Przestrzeń była miejscem prezentacji nowych modeli Porsche 911 oraz Taycan.',
-		tags: ['Premium Finish', 'Ekspozycja', 'Konstrukcja Modułowa', 'Branding'],
-		images: ['/Obraz7.jpg', '/Obraz1.jpg', '/Obraz5.png'],
-		reverse: true,
-	},
-	{
-		number: '07',
-		brand: 'Garage · Snowfest',
-		name: 'Strefa Festiwalowa',
-		location: 'Szczyrk',
-		year: '2022',
-		category: 'Produkcja Eventowa',
-		description:
-			'Strefa après-ski marki Garage na Snowfest Szczyrk. Projekt zakładał stworzenie drewniano-stalowej konstrukcji inspirowanej alpejską architekturą. Całość uzupełniały duże formaty graficzne, oświetlenie nastrojowe LED oraz mobilne bary. Strefa stała się jednym z najchętniej fotografowanych miejsc festiwalu.',
-		tags: ['Konstrukcja Mieszana', 'Drewno i Stal', 'LED', 'Apres-ski'],
-		images: ['/Obraz8.jpg', '/Obraz2.jpg', '/Obraz4.jpg'],
-		reverse: false,
-	},
-	{
-		number: '08',
-		brand: 'Disney+',
-		name: 'Strefa Promocyjna Wonderman',
-		location: 'Warszawa · Nowy Świat',
-		year: '2022',
-		category: 'Kampania Premierowa',
-		description:
-			'Strefa promocyjna Disney+ z okazji premiery serialu Wonderman na warszawskim Nowym Świecie. Interaktywna przestrzeń z elementami dekoracyjnymi w skali 1:1, strefą foto 360°, gadżetami i animatorami w kostiumach. Przez 3 dni strefę odwiedziło ponad 12 000 osób.',
-		tags: ['Dekoracje Wielkoformatowe', 'Foto 360°', 'Animatorzy', 'Branding'],
-		images: ['/Obraz9.jpg', '/Obraz6.jpg', '/Obraz3.jpg'],
-		reverse: true,
-	},
-]
-
-export default function PortfolioList() {
+export default function PortfolioList({ projects = [] }) {
+	const projectList = projects.map((p, i) => ({
+		...p,
+		number: String(i + 1).padStart(2, '0'),
+		images: p.images && p.images.length > 0 ? p.images : [p.mainImage].filter(Boolean),
+		reverse: i % 2 === 1,
+	}))
 	return (
 		<section className="pb-24 px-6 md:px-12 bg-white" id="portfolio-container">
 			<div className="max-w-7xl mx-auto">
-				{projects.map((project, index) => (
-					<article
-						key={project.number}
+			{projectList.map((project, index) => (
+				<article
+					key={project._id || project.number}
 						className={`portfolio-item py-20 flex flex-col md:flex-row gap-12 lg:gap-20 items-center ${
-							index < projects.length - 1 ? 'border-b border-gray-200' : ''
+							index < projectList.length - 1 ? 'border-b border-gray-200' : ''
 						}`}
 					>
 						{/* ── Karuzela ── */}

@@ -2,17 +2,6 @@
 
 import { motion } from 'framer-motion'
 
-const projects = [
-	{ img: '/Obraz2.jpg', brand: 'Johnnie Walker', name: 'Strefa Festiwalowa Blonde', location: 'Snowfest · Szczyrk' },
-	{ img: '/Obraz3.jpg', brand: "Levi's", name: 'Strefa Kontenerowa', location: 'Warszawa' },
-	{ img: '/Obraz4.jpg', brand: 'Sephora', name: 'Beauty Bus', location: '7 lokalizacji · Cała Polska' },
-	{ img: '/Obraz5.png', brand: 'Storytel', name: 'Targi Książki', location: 'Kraków EXPO' },
-	{ img: '/Obraz6.jpg', brand: "L'Oréal Paris", name: 'Strefa Kontenerowa', location: 'Opener · Gdynia' },
-	{ img: '/Obraz7.jpg', brand: 'Porsche', name: 'Kontenery Ekspozycyjne', location: 'Warszawa · 2 lokalizacje' },
-	{ img: '/Obraz8.jpg', brand: 'Garage · Snowfest', name: 'Strefa Festiwalowa', location: 'Szczyrk' },
-	{ img: '/Obraz9.jpg', brand: 'Disney+', name: 'Strefa Promocyjna Wonderman', location: 'Warszawa · Nowy Świat' },
-]
-
 const cardVariants = {
 	hidden: { opacity: 0, y: 60 },
 	visible: (i) => ({
@@ -26,7 +15,7 @@ const cardVariants = {
 	}),
 }
 
-export default function Projects() {
+export default function Projects({ projects = [] }) {
 	return (
 		<section className="relative bg-white z-20 pt-24 pb-24 px-6 md:px-12" id="project-list">
 			<div className="max-w-7xl mx-auto">
@@ -61,7 +50,7 @@ export default function Projects() {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
 					{projects.map((p, i) => (
 						<motion.div
-							key={i}
+							key={p._id || i}
 							custom={i}
 							variants={cardVariants}
 							initial="hidden"
@@ -71,7 +60,7 @@ export default function Projects() {
 						>
 							<div className="overflow-hidden rounded-xl mb-5">
 								<motion.img
-									src={p.img}
+									src={p.mainImage || p.img}
 									className="w-full h-[400px] object-cover"
 									alt={p.name}
 									whileHover={{ scale: 1.05 }}

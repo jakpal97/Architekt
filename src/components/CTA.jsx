@@ -1,38 +1,43 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
-const SERVICES = ['Projekty', 'Outdoor', 'Druk', 'Produkcja', 'Logistyka', 'Kompleksowo']
+const DEFAULT_SCOPE = ['Projekty', 'Outdoor', 'Druk', 'Produkcja', 'Logistyka', 'Kompleksowo']
+const DEFAULT_STATS = [
+  { number: '340+', label: 'REALIZACJI' },
+  { number: '12', label: 'LAT DOŚWIADCZENIA' },
+]
 
-export default function AwardWinningCTA() {
+export default function AwardWinningCTA({ headline, leadText, stats, scopeOptions }) {
 	const [selected, setSelected] = useState([])
-	const [step, setStep] = useState(0) // 0: Idle, 1: Success
+	const [step, setStep] = useState(0)
+
+	const ctaHeadline = headline || 'Stwórzmy razem coś niezwykłego.'
+	const ctaLead = leadText || 'Masz projekt? Opisz go nam w dwóch zdaniach. Wrócimy z wyceną i koncepcją w ciągu 48 godzin.'
+	const ctaStats = stats?.length ? stats : DEFAULT_STATS
+	const scope = scopeOptions?.length ? scopeOptions : DEFAULT_SCOPE
 
 	const toggle = s => setSelected(p => (p.includes(s) ? p.filter(x => x !== s) : [...p, s]))
 
 	return (
 		<section className="cta-final">
 			<div className="cta-wrapper">
-				{/* NAGŁÓWEK - GIGANTYCZNY SKALALNY TEKST */}
 				<div className="cta-header">
 					<span className="cta-small-label">// KONTAKT</span>
 					<h2 className="cta-huge-title">
-						Stwórzmy razem coś <em>niezwykłego.</em>
+						{ctaHeadline}
 					</h2>
 				</div>
 
-				{/* FORMULARZ - CAŁKOWICIE WBUDOWANY W SIATKĘ */}
 				<div className="cta-content-grid">
 					<div className="cta-info-col">
-						<p className="cta-lead-text">
-							Masz projekt? Opisz go nam w dwóch zdaniach. Wrócimy z wyceną i koncepcją w ciągu 48 godzin.
-						</p>
+						<p className="cta-lead-text">{ctaLead}</p>
 						<div className="cta-contact-details">
-							<a href="mailto:hello@wpmsolutions.pl" className="cta-link">
-								hello@wpmsolutions.pl
-							</a>
-							<p className="cta-stat-item">340+ REALIZACJI</p>
-							<p className="cta-stat-item">12 LAT DOŚWIADCZENIA</p>
+							{ctaStats.map((stat, i) => (
+								<p key={i} className="cta-stat-item">
+									{stat.number} {stat.label}
+								</p>
+							))}
 						</div>
 					</div>
 
@@ -58,7 +63,7 @@ export default function AwardWinningCTA() {
 								<div className="input-group">
 									<label>ZAKRES</label>
 									<div className="pill-grid">
-										{SERVICES.map(s => (
+										{scope.map(s => (
 											<button
 												key={s}
 												type="button"
@@ -115,7 +120,6 @@ export default function AwardWinningCTA() {
         
         .cta-stat-item { font-size: 0.7rem; letter-spacing: 0.2em; color: #bbb; margin-top: 2rem; font-weight: 700; }
 
-        /* Formularz */
         .minimal-form { display: flex; flex-direction: column; gap: 4rem; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
         
@@ -136,46 +140,24 @@ export default function AwardWinningCTA() {
         }
         .pill-btn.active { background: #0a0a0a; color: #fff; border-color: #0a0a0a; }
 
-       .huge-submit-btn { 
-  background: #0a0a0a; 
-  color: #fff; 
-  border: none; 
-  padding: 1.5rem 3rem; /* Nieco mniejszy padding pionowy dla lepszej proporcji pill-button */
-  border-radius: 100px; /* To zaokrągli button całkowicie */
-  font-size: 1.1rem; 
-  font-weight: 600; 
-  cursor: pointer; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  margin-top: 2rem; /* Dodatkowy oddech od pola tekstowego */
-}
+        .huge-submit-btn { 
+          background: #0a0a0a; color: #fff; border: none; 
+          padding: 1.5rem 3rem; border-radius: 100px; font-size: 1.1rem; 
+          font-weight: 600; cursor: pointer; display: flex; 
+          justify-content: space-between; align-items: center;
+          transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); margin-top: 2rem;
+        }
+        .huge-submit-btn:hover { 
+          transform: translateY(-5px) scale(1.02); background: #222; 
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .huge-submit-btn span {
+          background: #fff; color: #000; width: 32px; height: 32px;
+          border-radius: 50%; display: flex; align-items: center; justify-content: center;
+          margin-left: 2rem; transition: transform 0.3s ease;
+        }
+        .huge-submit-btn:hover span { transform: translateX(5px); }
 
-.huge-submit-btn:hover { 
-  transform: translateY(-5px) scale(1.02); /* Subtelne powiększenie przy hoverze */
-  background: #222; 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Delikatny cień dla głębi */
-}
-
-.huge-submit-btn span {
-  background: #fff;
-  color: #000;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 2rem;
-  transition: transform 0.3s ease;
-}
-
-.huge-submit-btn:hover span {
-  transform: translateX(5px);
-}
-
-        /* Success */
         .success-title { font-size: 4rem; letter-spacing: -0.04em; margin-bottom: 1rem; }
         .reset-btn { background: none; border: none; text-decoration: underline; cursor: pointer; margin-top: 2rem; color: #999; }
 

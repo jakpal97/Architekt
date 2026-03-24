@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from 'react'
 
-const brands = [
+const defaultBrands = [
   { name: "Levi's",        cat: "Fashion" },
   { name: "Sephora",       cat: "Beauty" },
   { name: "Johnnie Walker",cat: "Spirits" },
@@ -14,10 +14,13 @@ const brands = [
   { name: "Garage",        cat: "Fashion" },
 ]
 
-// Powiel 4x dla płynnej pętli
-const track = [...brands, ...brands, ...brands, ...brands]
+export default function LogoCarousel({ brands }) {
+  const brandList = (brands && brands.length > 0)
+    ? brands.map((b) => ({ name: b.name, cat: b.category }))
+    : defaultBrands
 
-export default function LogoCarousel() {
+  // Powiel 4x dla płynnej pętli
+  const track = [...brandList, ...brandList, ...brandList, ...brandList]
   const row1Ref = useRef(null)
   const row2Ref = useRef(null)
   const [paused, setPaused] = useState(false)

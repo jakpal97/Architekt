@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, Center, ContactShadows, Environment, OrbitControls, Float } from '@react-three/drei'
 
-// Skala głównego modelu per krok: 01, 02, 03, 04
+// Ścieżki i skale modeli 3D zostają hardcode — zmieniane bezpośrednio w kodzie
 const MODEL_SCALES = [2.5, 1.2, 0.4, 0.3]
 
 // --- Inteligentny Renderer Modeli (obsługujący dwa obiekty) ---
@@ -34,39 +34,36 @@ function ModelManager({ url, url2, activeIndex, myIndex }) {
   )
 }
 
-const STEPS = [
-  { 
-    id: '01', 
-    title: 'Brief', 
-    model: '/step01.glb',
-    model2: '/step01-2.glb',
-    desc: 'Analizujemy Twoje potrzeby i cele biznesowe. Tworzymy fundament pod projekt.',
-    details: ['KICKOFF', 'STRATEGIA']
-  },
-  { 
-    id: '02', 
-    title: 'Projekt', 
-    model: '/step02.glb', 
-    desc: 'Przekładamy wizję na konkretne rzuty i wizualizacje 3D.',
-    details: ['DESIGN', 'RENDER']
-  },
-  { 
-    id: '03', 
-    title: 'Produkcja', 
-    model: '/step03.glb', 
-    desc: 'Rzeczywista budowa konstrukcji w naszym parku maszynowym.',
-    details: ['CNC', 'DRUK']
-  },
-  { 
-    id: '04', 
-    title: 'Montaż', 
-    model: '/step04.glb', 
-    desc: 'Instalacja gotowej przestrzeni u klienta. Finał procesu.',
-    details: ['LOGISTYKA', 'SETUP']
-  },
+// Dane modeli — ścieżki i kolejność zostają hardcode
+const MODEL_DATA = [
+  { model: '/step01.glb', model2: '/step01-2.glb' },
+  { model: '/step02.glb' },
+  { model: '/step03.glb' },
+  { model: '/step04.glb' },
 ]
 
-export default function UltimateProcess() {
+// Domyślne teksty — używane gdy Sanity nie jest jeszcze skonfigurowane
+const DEFAULT_STEPS = [
+  { id: '01', title: 'Brief', desc: 'Analizujemy Twoje potrzeby i cele biznesowe. Tworzymy fundament pod projekt.', details: ['KICKOFF', 'STRATEGIA'] },
+  { id: '02', title: 'Projekt', desc: 'Przekładamy wizję na konkretne rzuty i wizualizacje 3D.', details: ['DESIGN', 'RENDER'] },
+  { id: '03', title: 'Produkcja', desc: 'Rzeczywista budowa konstrukcji w naszym parku maszynowym.', details: ['CNC', 'DRUK'] },
+  { id: '04', title: 'Montaż', desc: 'Instalacja gotowej przestrzeni u klienta. Finał procesu.', details: ['LOGISTYKA', 'SETUP'] },
+]
+
+export default function UltimateProcess({ steps }) {
+  const stepsData = (steps && steps.length === 4)
+    ? steps.map((s, i) => ({
+        id: String(i + 1).padStart(2, '0'),
+        title: s.title,
+        desc: s.description,
+        details: s.tags || [],
+      }))
+    : DEFAULT_STEPS
+
+  const STEPS = stepsData.map((s, i) => ({
+    ...s,
+    ...MODEL_DATA[i],
+  }))
   const [activeStep, setActiveStep] = useState(0)
   const stepRefs = useRef([])
 

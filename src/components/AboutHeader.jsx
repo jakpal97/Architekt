@@ -1,6 +1,6 @@
 'use client'
 
-export default function AboutHeader() {
+export default function AboutHeader({ title }) {
 	return (
 		<header className="pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
 			<div className="border-b border-gray-200 pb-12">
@@ -13,7 +13,7 @@ export default function AboutHeader() {
 						className="text-6xl md:text-8xl font-medium tracking-tight"
 						id="about-title"
 					>
-						Kim Jesteśmy
+						{title || 'Kim Jesteśmy'}
 					</h1>
 				</div>
 			</div>

@@ -3,25 +3,31 @@
 import Link from 'next/link'
 import { useRef, useEffect, useState } from 'react'
 
-const SERVICES = [
-  { id: '01', title: 'Projekty', sub: 'Koncepcja & BIM', desc: 'Integracja naturalnego środowiska z architekturą poprzez planowanie przestrzeni.', img: '/Obraz6.jpg' },
-  { id: '02', title: 'Kampanie Outdoor', sub: 'Kampanie & Branding', desc: 'Projektowanie funkcjonalnych, estetycznie przyjemnych przestrzeni zewnętrznych.', img: '/Obraz7.jpg' },
-  { id: '03', title: 'Druk Wielkoformatowy', sub: 'Wielki Format', desc: 'Od siatek mesh po folię polimerową — perfekcyjna realizacja w każdej skali.', img: '/Obraz6.jpg' },
-  { id: '04', title: 'Produkcja nośników i konstrukcji niestandardowych', sub: 'Nośniki & Eventy', desc: 'Niestandardowe nośniki reklamowe i konstrukcje eventowe szyte na miarę.', img: '/Obraz8.jpg' },
-  { id: '05', title: 'Logistyka i Montaż', sub: 'Montaż & Transport', desc: 'Pełna obsługa logistyczna — montaż i demontaż na miejscu eventu.', img: '/Obraz7.jpg' },
-]
-
-export default function ServiceCube() {
+export default function ServiceCube({ services = [] }) {
+  const SERVICES = services.map((s, i) => ({
+    id: String(i + 1).padStart(2, '0'),
+    title: s.title,
+    sub: s.sub || '',
+    desc: s.cubeDescription || s.shortDescription || '',
+    img: s.heroImage || '',
+    slug: s.slug,
+  }))
   const containerRef = useRef(null)
   const [active, setActive] = useState(0)
+
+  const servicesLengthRef = useRef(SERVICES.length)
+  useEffect(() => {
+    servicesLengthRef.current = SERVICES.length
+  }, [SERVICES.length])
 
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return
+      const count = servicesLengthRef.current
+      if (count === 0) return
       const { top, height } = containerRef.current.getBoundingClientRect()
-      // Obliczamy postęp scrolla wewnątrz sekcji (0 do 1)
       const scrollFraction = Math.max(0, Math.min(1, -top / (height - window.innerHeight)))
-      const step = Math.min(SERVICES.length - 1, Math.floor(scrollFraction * SERVICES.length))
+      const step = Math.min(count - 1, Math.floor(scrollFraction * count))
       setActive(step)
     }
 
@@ -35,7 +41,7 @@ export default function ServiceCube() {
         
         {/* Dynamiczny nagłówek */}
         <div className="cube-header">
-          <p className="cube-eyebrow">// USŁUGI</p>
+          <p className="cube-eyebrow"> USŁUGI</p>
           <h2 className="cube-h2">Co <em>tworzymy</em></h2>
         </div>
 
@@ -77,7 +83,7 @@ export default function ServiceCube() {
       </div>
 
       <style>{`
-        .cube-sec { height: 500vh; background: #fff; position: relative; }
+        .cube-sec { height: ${Math.max(300, SERVICES.length * 125)}vh; background: #fff; position: relative; }
         .cube-sticky { 
           position: sticky; top: 0; height: 100vh; 
           display: flex; flex-direction: column; align-items: center; justify-content: center;

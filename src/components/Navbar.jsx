@@ -2,8 +2,21 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useSettings } from '@/components/SettingsProvider'
 
-export default function Navbar() {
+const NAV_ITEMS = [
+  { label: 'O Nas',     href: '/o-nas'     },
+  { label: 'Usługi',   href: '/uslugi'    },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Blog',      href: '/blog'      },
+  { label: 'Kontakt',   href: '/kontakt'   },
+]
+
+export default function Navbar({ logoUrl: logoProp }) {
+  const settings = useSettings()
+  const logoUrl = logoProp || settings?.logoUrl
+  const pathname = usePathname()
     const [isVisible, setIsVisible] = useState(true);
     const [isScrolled, setIsScrolled] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -43,25 +56,28 @@ export default function Navbar() {
         >
             {/* Logo Section */}
             <Link href="/" className="text-xl font-bold tracking-tighter flex items-center gap-2 group">
-                <img src="/logo.png" alt="WPM solutions logo" className='w-20 h-10 ' />
+                <img src={logoUrl || '/logo.png'} alt="WPM solutions logo" className='w-20 h-10 ' />
             </Link>
 
             {/* Navigation Links */}
             <div className="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[0.2em]">
                 <Link href="/" className="relative group text-black">
                     Strona Główna
-                    <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-black transition-transform duration-500 origin-right scale-x-100 group-hover:scale-x-0 group-hover:origin-left"></span>
+                    <span className={`absolute -bottom-1 left-0 w-full h-[1.5px] bg-black transition-transform duration-500 ${pathname === '/' ? 'scale-x-100 origin-right group-hover:scale-x-0 group-hover:origin-left' : 'scale-x-0 origin-left group-hover:scale-x-100'}`}></span>
                 </Link>
-                {['O Nas', 'Usługi', 'Portfolio', 'Blog'].map((item) => (
-                    <Link 
-                        key={item} 
-                        href={`/${item.toLowerCase().replace(' ', '-')}`} 
-                        className="relative group text-black/50 hover:text-black transition-colors duration-300"
-                    >
-                        {item}
-                        <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-black transition-transform duration-500 origin-right scale-x-0 group-hover:scale-x-100 group-hover:origin-left"></span>
-                    </Link>
-                ))}
+                {NAV_ITEMS.map(({ label, href }) => {
+                    const isActive = pathname === href || pathname.startsWith(href + '/')
+                    return (
+                        <Link
+                            key={href}
+                            href={href}
+                            className={`relative group transition-colors duration-300 hover:text-black ${isActive ? 'text-black' : 'text-black/50'}`}
+                        >
+                            {label}
+                            <span className={`absolute -bottom-1 left-0 w-full h-[1.5px] bg-black transition-transform duration-500 ${isActive ? 'scale-x-100 origin-right group-hover:scale-x-0 group-hover:origin-left' : 'scale-x-0 origin-left group-hover:scale-x-100'}`}></span>
+                        </Link>
+                    )
+                })}
             </div>
 
             {/* CTA Button */}

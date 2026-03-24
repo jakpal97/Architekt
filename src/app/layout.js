@@ -1,11 +1,15 @@
 import './globals.css'
+import { getSiteSettings } from '@/sanity/queries/settings'
+import SettingsProvider from '@/components/SettingsProvider'
 
 export const metadata = {
 	title: 'WPM Solutions',
-	description: 'Strefy dla każdego ',
+	description: 'Strefy dla każdego',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+	const settings = await getSiteSettings()
+
 	return (
 		<html lang="pl">
 			<head>
@@ -15,7 +19,9 @@ export default function RootLayout({ children }) {
 				/>
 			</head>
 			<body className="antialiased font-satoshi bg-white text-[#1a1a1a] overflow-x-hidden">
-				{children}
+				<SettingsProvider settings={settings}>
+					{children}
+				</SettingsProvider>
 			</body>
 		</html>
 	)
